@@ -1,13 +1,10 @@
 <?php
-// Exemplo de uso no modelo do AcessaBD e classe teste
-require_once('componentes/teste/teste.class.php');
 
-$teste = new Teste();
+error_reporting(E_ALL);
 
-var_dump($teste);
+include_once("./sistema/controller/Controller.php");
 
-$teste->bind();
-
-var_dump($teste);
+$controller = new Controller();
+$controller->run();
 
 ?>
