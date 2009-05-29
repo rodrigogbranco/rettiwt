@@ -1,4 +1,6 @@
 <?php
+require_once('acessabd.class.php');
+
 /*
  * AcessaBD
  *
@@ -10,40 +12,32 @@
  * banco.
  */
 
-class MysqlAcessaBD implements AcessaBD
+class MysqlAcessaBD extends AcessaBD
 {
-  private $nomeTabela; //< Nome da tabela que será mapeada na classe
-  private $nomeCampos; //< Nome dos campos da tabela
-  
-  public function __construct ()
+  public function __construct ($id)
+  {
+//    if ($id > 0)
+//      $this;
+  }
+
+  public function load()
   {
 
   }
 
-  public abstract function insert()
+  public function insert()
   {
 
   }
 
-  public abstract function remove()
+  public function remove()
   {
 
   }
 
-  public abstract function save()
+  public function save()
   {
 
-  }
-
-  public abstract function bind()
-  {
-    if (is_array($_REQUEST))
-    {
-      foreach ($_REQUEST as $item)
-      {
-        
-      }
-    }
   }
 }
 
