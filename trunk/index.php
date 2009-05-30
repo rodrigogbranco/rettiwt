@@ -1,10 +1,14 @@
 <?php
 
+//Reportar erros
 error_reporting(E_ALL);
 
-include_once("./sistema/controller/Controller.php");
+//Incluir o arquivo do Controller
+require_once("./sistema/controller/Controller.php");
 
+//Instância do Controller
 $controller = new Controller();
+//Inicia o Controller
 $controller->run();
 
 ?>
