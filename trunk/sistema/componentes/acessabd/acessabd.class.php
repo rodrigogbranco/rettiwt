@@ -82,7 +82,6 @@ class AcessaBD implements GeneralAcessaBD
 
   function __construct ($id = -1)
   {
-
   }
 
   function load()

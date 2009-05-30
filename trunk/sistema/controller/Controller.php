@@ -20,10 +20,11 @@ class Controller
 
 			//Cria a visão
 			$view = new AnonimousView();
+			$user->alias = $_GET['alias'];
 			//Verifica se o User foi instanciado
-			if (!$user->validUser())
+			/*if (!$user->validUser())
 				$view->setError("unknownUser"); //Ops, usuário desconhecido
-			else
+			else*/
 				$view->setUser($user); //Usuário foi encontrado
 		}
 		else
