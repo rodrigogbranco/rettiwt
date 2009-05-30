@@ -28,5 +28,10 @@ class User extends AcessaBD
 		//verifica se a instanciação foi correta
 		return ($this->id > 0);
 	}
+	
+	function getPassword()
+	{
+		return $this->password;
+	}
 }
 ?>

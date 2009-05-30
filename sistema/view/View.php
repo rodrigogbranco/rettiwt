@@ -11,12 +11,14 @@ abstract class View
 	function __construct()
 	{
 		?>
-		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-		<html lang="pt">
-		<head>
-		<title>..::R E T T W I T::..</title>
-		</head>
-		<body>
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/xhtml1/DTD/strict.dtd">
+		<html lang="pt-br">
+			<head>
+				<title>..:: R E T T I W T ::..</title>
+				<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+				<link href="estilos.css" rel="stylesheet" type="text/css">
+			</head>
+			<body>
 		<?php
 	}
 
@@ -24,7 +26,7 @@ abstract class View
 	function __destruct()
 	{
 		?>
-		</body>
+			</body>
 		</html>
 		<?php
 	}
@@ -32,13 +34,13 @@ abstract class View
 	//Qual o usuário?
 	function getUser()
 	{
-		return $user;
+		return $this->user;
 	}
 	
 	//novo usuário instanciado
 	function setUser($newUser)
 	{
-		$user = $newUser;
+		$this->user = $newUser;
 	}
 	
 	//Função abstrata show, cada view implementa a sua
@@ -48,6 +50,12 @@ abstract class View
 	function setError($newError)
 	{
 		$this->error = $newError;
+	}
+
+	/*Função da tela padrão*/
+	function showDefault()
+	{
+		include "sistema/view/showDefault.php";
 	}
 }
 

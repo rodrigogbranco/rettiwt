@@ -19,14 +19,15 @@ class UserView extends View
 			//Um erro foi detectado, vamos ver qual é...
 			switch($this->error)
 			{
-				//Usuário desconhecido
+				//Usuário inválido
 				case "invalidUser":
-					echo "Usuario Inválido";
+					$this->specifiedMsgError = "Usuário Inválido";
 					break;
 				case "invalidPassword":
-					echo "Password invalido";
+					$this->specifiedMsgError = "Password Inválido";
 					break;
 			}
+			$this->showDefault();
 		}
 	}
 }

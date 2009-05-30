@@ -33,48 +33,10 @@ class AnonimousView extends View
 		}
 	}
 
-	/*Função específica para mostrar um usuário*/
+	/*Função para mostrar um usuário específico*/
 	function showUser()
 	{
-		echo "Usuario especifico"; //O usuário foi especificado
-	}
-
-	/*Função da tela padrão*/
-	function showDefault()
-	{
-		?>
-			<div class="principal">
-				<div class="imagem">
-					Incluir imagem, se tiver
-				</div>
-				<div class="texto">
-					Incluir texto aqui
-				</div>
-				<div class="init_form">
-					<form method="post" action="index.php">
-						<p>
-							email: <input type="text" name="email" value="Digite aqui o email">
-						</p>
-						<p>
-							senha: <input type="text" name="password" value="">
-						</p>
-						<p>
-							<input type="submit" value="Logar">
-						</p>
-					</form>
-				</div>
-				<div class="error">
-					<strong>
-					<?php
-						echo $this->specifiedMsgError;
-					?>
-					</strong>
-				</div>
-			</div>
-			<div class="rodape">
-				Rodapé?
-			</div>
-		<?php
+		include "sistema/view/showUser.php";
 	}
 }
 
