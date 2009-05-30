@@ -1,44 +1,52 @@
 <?php
 
-include_once("sistema/view/View.php");
-include_once("sistema/view/AnonimousView.php");
-include_once("sistema/view/UserView.php");
-include_once("sistema/model/User.php");
+/*Arquivos fonte*/
+require_once("sistema/view/View.php");
+require_once("sistema/view/AnonimousView.php");
+require_once("sistema/view/UserView.php");
+require_once("sistema/model/User.php");
 
+/*Classe do Controlador*/
 class Controller
 {	
 	//função que invoca o controller
 	function run()
 	{	
-		var_dump($_GET);
-		if ($_GET['alias'] != null)
+		//Verifica se algo vem por GET
+		if (isset($_GET['alias']))
 		{
-			//Um usuário foi identificado
+			//Tentativa de instanciar o User
 			$user = new User($_GET['alias']);
 
+			//Cria a visão
 			$view = new AnonimousView();
+			//Verifica se o User foi instanciado
 			if (!$user->validUser())
-				$view->setError("unknownUser");
+				$view->setError("unknownUser"); //Ops, usuário desconhecido
 			else
-				$view->setUser($user);
+				$view->setUser($user); //Usuário foi encontrado
 		}
 		else
 		{
-			if ($_POST['alias'] != null)
+			//Verifica se vem algo por post
+			if (isset($_POST['email']))
 			{
-				//Usuário está tentando se validar
-				$user = new User($_POST['alias']);
-
+				//Tentativa de instanciar o User
+				$user = new User($_POST['email']);
+				
+				//Cria a visão
 				$view = new UserView();				
 
+				//Verifica se o User foi instanciado
 				if (!$user->validUser())
-					$view->setError("invalidUser");
+					$view->setError("invalidUser"); //Ops, usuário inválido
 				else
 				{
+					//Será que é o usuário mesmo?
 					if(sha1($_POST['password']) == $user->getPassword())
-						$view->setUser($user);
+						$view->setUser($user); //Logon permitido
 					else
-						$view->setError("invalidPassword");
+						$view->setError("invalidPassword"); //Erro de senha
 				}
 			}
 			else
