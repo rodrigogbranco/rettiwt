@@ -1,0 +1,177 @@
+/*----- inicio pagina de login -----*/
+
+#login
+{
+	margin-left: 40%;
+	margin-right: 40%;
+	margin-top: 200px;
+}
+
+#login form
+{
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+#login form table
+{
+	border-collapse: separate;
+}
+
+#login form table tr td input
+{
+	margin-bottom: 10px;
+	width: 90%;
+}
+
+#login form table tr td
+{
+	float: left;
+	width: auto;
+}
+
+#login #fail
+{
+	background-color: #FF69B4;
+	border: 2px solid;
+	color: red;
+	margin-top: 10px;
+	text-align: center;
+}
+
+/*----- fim pagina de login -----*/
+
+#top
+{
+	text-align: right;
+}
+
+#container
+{
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+#welcome
+{
+	background-color: #80FF80;
+	height: 61px;
+}
+
+#bordertop
+{
+	background-color: #0080C0;
+	/* sera trocado por uma figura com borda arredondada */
+}
+
+#content
+{
+	background-color: #0080C0;
+}
+
+/*----- inicio pagina de mensagens -----*/
+
+.msg {
+	height: 100px;
+	/*width: 610px;*/
+	padding: 10px 20px;
+}
+
+.msg .msg_content {
+	width: 82%;
+	height: 80px;
+	float: right;
+	border: 1px #888 inset;
+}
+
+.msg .msg_user {
+	width: 15%;
+	height: 100px;
+	float: left;
+}
+
+/*----- fim pagina de mensagens -----*/
+
+#borderbottom
+{
+	background-color: #0080C0;
+	/* sera trocado por uma figura com borda arredondada */
+}
+
+
+/*----- inicio menu drop down -----*/
+
+ul.navlist { font-family: sans-serif; }
+
+ul.navlist a
+{
+font-weight: bold;
+text-decoration: none;
+}
+
+ul.navlist, ul.navlist ul, ul.navlist li
+{
+margin: 0px;
+padding: 0px;
+list-style-type: none;
+}
+
+ul.navlist li 
+{
+	float: left;
+	width: auto;
+}
+
+ul.navlist li a
+{
+color: #808080;
+background-color: #80FF80;
+padding-right: 10px;
+padding-left: 10px;
+/*border: 1px #ffffff outset;*/
+}
+
+ul.navlist li a:hover
+{
+color: #0080ff;
+background-color: #80FF80;
+}
+
+ul.navlist li a:active
+{
+color: #cccccc;
+background-color: #80FF80;
+/*border: 1px #ffffff inset;*/
+}
+
+ul.subnavlist { display: none; }
+ul.subnavlist li { float: none; width: auto; }
+
+ul.subnavlist li a
+{
+padding: 0px;
+margin: 0px;
+}
+
+ul.navlist li:hover ul.subnavlist
+{
+display: block;
+position: absolute;
+font-size: 8pt;
+padding-top: 5px;
+}
+
+ul.navlist li:hover ul.subnavlist li a
+{
+display: block;
+width: 10em;
+border: none;
+padding: 2px;
+}
+/*
+ul#navlist li:hover ul#subnavlist li a:before
+{
+	content: " >> ";
+}
+*/
+/*----- fim menu drop down -----*/
