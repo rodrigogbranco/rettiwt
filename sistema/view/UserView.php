@@ -9,10 +9,11 @@ class UserView extends View
 	//Função de exibição	
 	function show()
 	{
+		global $controller;
 		//Algum erro foi cometido?
 		if($this->error == "")
 		{
-			echo "Usuario Validado";
+			include "sistema/view/showUser.php";
 		}
 		else
 		{
@@ -27,7 +28,8 @@ class UserView extends View
 					$this->specifiedMsgError = "Password Inválido";
 					break;
 			}
-			$this->showDefault();
+			include "sistema/view/showDefault.php";
+
 		}
 	}
 }

@@ -22,7 +22,7 @@ interface GeneralAcessaBD
    * No construtor é necessário especificar o nome da tabela que sera acessada e
    * o nome de seus campos(para que seja feito o mapeamento correto).
    */
-  function __construct ($id = -1);
+  function __construct ($tabela,$id = -1);
 
   /**
    * load()
@@ -80,7 +80,7 @@ class AcessaBD implements GeneralAcessaBD
   protected $nomeTabela; //< Nome da tabela que será mapeada na classe
   protected $nomeCampos; //< Array do nome dos campos da tabela
 
-  function __construct ($id = -1)
+  function __construct ($tabela, $id = -1)
   {
   }
 
