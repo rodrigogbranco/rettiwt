@@ -4,8 +4,9 @@
 abstract class View
 {
 	//Usuario corrente, se nulo, é um anônimo
-	var $user;
+	var $user = null;
 	var $error = "";
+	var $specifiedMsgError = "";
 
 	//html inicial
 	function __construct()
@@ -16,7 +17,7 @@ abstract class View
 			<head>
 				<title>..:: R E T T I W T ::..</title>
 				<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-				<link href="estilos.css" rel="stylesheet" type="text/css">
+				<link href="templates/theme/theme.css" rel="stylesheet" type="text/css">
 			</head>
 			<body>
 		<?php

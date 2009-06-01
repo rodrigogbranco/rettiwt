@@ -6,7 +6,6 @@ include_once("View.php");
 /*Classe do Controlador*/
 class AnonimousView extends View
 {	
-	var $specifiedMsgError = "";
 	/*Função de visualização*/
 	function show()
 	{
