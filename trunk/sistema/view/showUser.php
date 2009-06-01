@@ -7,7 +7,17 @@
 		<div id="container">
 		
 			<div id="welcome">
-				<p>Olá, <?php echo $this->user->alias; ?></p>
+				<?php if($controller->activeUser)
+				{?>
+					<p>Olá, <?php echo $this->user->alias; ?></p>
+				<?php 
+				}else
+				{
+				?>
+					<p><?php echo $this->user->alias; ?> está no Rettwit. Você está? Faça parte agora!</p>
+				<?php
+				}
+				?>
 			
 				<div id="navcontainer">
 					<ul class="navlist">
@@ -53,6 +63,10 @@
 				</div>
 			</div>
 			
-			<div id="borderbottom">&nbsp;</div>
+			<div id="borderbottom">Rodapé</div>
 		
+		</div>
+		
+		<div id="bottom">
+			<p>Bottom</p>
 		</div>

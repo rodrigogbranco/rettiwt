@@ -25,5 +25,7 @@
 				<div id="fail">
 					<?php echo $this->specifiedMsgError; ?>
 				</div>
-			<?php } ?>
+			<?php 
+			} 
+			?>
 		</div>

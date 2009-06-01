@@ -14,12 +14,35 @@ class Controller
 	var $visualisedUser = null;
 	//função que invoca o controller
 	function run()
-	{	
-		//Verifica se algo vem por GET
-		if (isset($_GET['alias']))
+	{
+		//Verifica se vem algo por post
+		if (isset($_POST['email']))
 		{
 			//Tentativa de instanciar o User
-			$user = new User($_GET['alias']);
+			$user = new User('email',$_POST['email']);
+			
+			//Cria a visão
+			$view = new UserView();				
+
+			//Verifica se o User foi instanciado
+			if (!$user->validUser())
+				$view->setError("invalidUser"); //Ops, usuário inválido
+			else
+			{
+				//Será que é o usuário mesmo?
+				if(sha1($_POST['password']) == $user->getPassword())
+				{
+					$view->setUser($user); //Logon permitido
+					$this->activeUser = $user; //Registrando o Usuário ativo
+				}
+				else
+					$view->setError("invalidPassword"); //Erro de senha
+			}
+		}
+		else if(isset($_GET['alias'])) //Verifica se algo vem por GET			
+		{
+			//Tentativa de instanciar o User
+			$user = new User('alias',$_GET['alias']);
 
 			//Cria a visão
 			$view = new AnonimousView();
@@ -37,37 +60,9 @@ class Controller
 		}
 		else
 		{
-			//Verifica se vem algo por post
-			if (isset($_POST['email']))
-			{
-				//Tentativa de instanciar o User
-				$user = new User($_POST['email']);
-				
-				//Cria a visão
-				$view = new UserView();				
-
-				//Verifica se o User foi instanciado
-				if (!$user->validUser())
-					$view->setError("invalidUser"); //Ops, usuário inválido
-				else
-				{
-					//Será que é o usuário mesmo?
-					if(sha1($_POST['password']) == $user->getPassword())
-					{
-						$view->setUser($user); //Logon permitido
-						$this->activeUser = $user; //Registrando o Usuário ativo
-					}
-					else
-						$view->setError("invalidPassword"); //Erro de senha
-				}
-			}
-			else
-			{
-				//Página inicial
-				$view = new AnonimousView();
-			}	
-		}
-		
+			//Página inicial
+			$view = new AnonimousView();
+		}	
 		//mostre a view resultante
 		$view->show();
 	}

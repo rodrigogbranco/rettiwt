@@ -52,12 +52,6 @@ abstract class View
 	{
 		$this->error = $newError;
 	}
-
-	/*Função da tela padrão*/
-	function showDefault()
-	{
-		include "sistema/view/showDefault.php";
-	}
 }
 
 ?>
