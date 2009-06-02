@@ -9,7 +9,7 @@ class MysqlDB implements BancoDeDados
 
   public function __construct($host, $user, $password, $database)
   {
-    if ( empty($host) || empty($user) || empty($password) || empty($database))
+    if ( empty($host) || empty($user) /*|| empty($password)*/ || empty($database))
     {
       throw new ConfigBDException('Campos host, usuario, senha ou database não preenchidos.');
       return;

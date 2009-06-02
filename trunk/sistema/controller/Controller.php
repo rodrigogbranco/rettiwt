@@ -1,9 +1,9 @@
 <?php
-
 /*Arquivos fonte*/
 require_once("sistema/view/View.php");
 require_once("sistema/view/AnonimousView.php");
 require_once("sistema/view/UserView.php");
+require_once("sistema/view/RegisterView.php");
 require_once("sistema/model/User.php");
 
 /*Classe do Controlador*/
@@ -15,8 +15,51 @@ class Controller
 	//função que invoca o controller
 	function run()
 	{
-		//Verifica se vem algo por post
-		if (isset($_POST['email']))
+		if (isset($_POST['validarcadastro'])) //verificar se há um cadastro para efetuar
+		{
+			//Instanciando a nova View
+			$view = new RegisterView();
+			
+			/*Verificando se o password confere com a verificação*/
+			if($_POST['password'] == $_POST['confirm'])
+			{
+				/*instanciando um novo objeto User*/
+				$user = new User('email',$_POST['email']);
+				
+				if(!$user->validUser())
+				{
+					/*instanciando o objeto User novamente*/
+					$user = new User('alias',$_POST['alias']);
+					
+					if(!$user->validUser())
+					{
+						//Beleza, nosso registro é possivel
+						$user = new User();
+						
+						$user->email = $_POST['email'];
+						$user->alias = $_POST['alias'];
+						$user->password = sha1($_POST['password']);
+						/*lembrar o lance das cores*/$user->color = 1;
+						
+						/*Vamos persistir o indivíduo*/
+						$user->save();
+						
+						echo "So pra testar se gravou";
+					}
+					else
+						$view->setError('registeredAlias'); //Ja tem um caboclo com esse alias.
+				}
+				else
+					$view->setError('registeredEmail'); //Ja tem um caboclo com esse email.
+			}
+			else
+				$view->setError('mismatchPassword'); //Ops!
+		}
+		else if (isset($_POST['cadastro'])) //verificar se o cadastro foi solicitado
+		{
+			$view = new RegisterView();
+		}
+		else if (isset($_POST['email'])) //Verifica se vem algo por post
 		{
 			//Tentativa de instanciar o User
 			$user = new User('email',$_POST['email']);

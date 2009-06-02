@@ -1,0 +1,38 @@
+<?php
+
+/*Inclusão do arquivo da classe base*/
+include_once("View.php");
+
+/*Classe que implementa uma visão de um usuário validado*/
+class RegisterView extends View
+{	
+	//Função de exibição	
+	function show()
+	{
+		global $controller;
+		//Algum erro foi cometido?
+		if($this->error != "")
+		{
+			//Um erro foi detectado, vamos ver qual é...
+			switch($this->error)
+			{
+				//Usuário inválido
+				case "mismatchPassword":
+					$this->specifiedMsgError = "Password não confere, tente novamente";
+					break;
+				//Já existe email cadastrado
+				case "registeredEmail":
+					$this->specifiedMsgError = "Esse email já consta nos registros, por favor coloque outro";
+					break;
+				//Já existe alias cadastrado
+				case "registeredAlias":
+					$this->specifiedMsgError = "Esse Alias já consta nos registros, por favor coloque outro";
+					break;
+			}
+		}
+		/*inclua o arquivo para visualizar*/
+		include "sistema/view/showRegisterForm.php";
+	}
+}
+
+?>

@@ -15,8 +15,8 @@ class User extends AcessaBD
 	/*Construtor*/
 	function __construct ( $nomeCampo = null, $valorCampo = null )
 	{
-		$this->nomeTabela = "usuario";
-		$this->nomeCampos = array('id','password','email','alias','color');
+		$this->nomeTabela = "user";
+		$this->nomeCampos = array("id","password","email","alias","color");
 		
     parent::__construct($nomeCampo, $valorCampo);
 	}
