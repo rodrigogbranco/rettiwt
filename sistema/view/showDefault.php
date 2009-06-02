@@ -1,5 +1,5 @@
 		<div id="login" >
-			<form action="#" method="POST">
+			<form action="index.php" method="POST">
 				<table>
 					<tr>
 						<td>email:</td>
@@ -28,4 +28,11 @@
 			<?php 
 			} 
 			?>
+		</div>
+		<div id="divcad">
+			<p id="testee">Não é cadastrado?</p>
+			<form method="post" action="index.php">
+				<input type="submit" value="Cadastre agora!">
+				<input type="hidden" name="cadastro" value="newcadastro">
+			</form>
 		</div>
