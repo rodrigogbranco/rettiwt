@@ -7,12 +7,12 @@ class Teste extends AcessaBD
   public $nome;
   public $idade;
 
-  public function __construct($dados)
+  public function __construct($nomeCampo='', $valorCampo='')
   {
-    $this->nomeTabela = '#__teste';
+    $this->nomeTabela = 'teste';
     $this->nomeCampos = array('id','nome','idade');
 
-    parent::__construct($dados);
+    parent::__construct($nomeCampo, $valorCampo);
   }
 }
 ?>

@@ -37,7 +37,7 @@ class MysqlDB implements BancoDeDados
     mysql_close($this->link);
   }
 
-  /*
+  /**
    * Método que informa se a conexão está estabelecida
    *
    * @return bool Verdadeiro se a conexão está OK
@@ -148,6 +148,16 @@ class MysqlDB implements BancoDeDados
   function affected_rows()
   {
     return mysql_affected_rows($this->link);
+  }
+
+/**
+ * insert_id()
+ *
+ * @return integer Id do ultimo registro inserido no bd;
+ */
+  function insert_id()
+  {
+    return mysql_insert_id($this->link);
   }
 }
 ?>
