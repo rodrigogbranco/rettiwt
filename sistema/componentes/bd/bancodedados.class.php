@@ -77,6 +77,13 @@ interface BancoDeDados
  * @return integer Quantidade de registros afetados.
  */
   function affected_rows();
+
+  /**
+ * insert_id()
+ *
+ * @return integer Id do ultimo registro inserido no bd;
+ */
+  function insert_id();
 }
 
 ?>

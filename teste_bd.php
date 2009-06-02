@@ -1,11 +1,27 @@
 <?php
-require_once ('sistema/config.inc.php');
-require_once('sistema/componentes/bd/controladorbd.class.php');
+require_once("sistema/sistema.php");
+require_once("componentes/teste/teste.class.php");
 
-$bd = ControladorBD::inicializar($config);
+global $bd;
 
-$resultado = $bd->fetch_array_list('SELECT * FROM teste');
+$teste = new Teste();
 
-var_dump($resultado);
+$teste->nome = "Teste2";
+$teste->idade = "10";
+
+var_dump($teste);
+
+$teste->save();
+
+//$teste->remove();
+
+var_dump($teste);
+
+//$teste->save();
+
+//var_dump($teste);
+
+//$resultado = $bd->fetch_row('SELECT * FROM teste');
+//var_dump($resultado);
 
 ?>
