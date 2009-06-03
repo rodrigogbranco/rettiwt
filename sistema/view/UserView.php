@@ -9,6 +9,8 @@ class UserView extends View
 	//Função de exibição	
 	function show()
 	{
+		//Verificar a sessao atraves do controller
+		global $controller;
 		//Algum erro foi cometido?
 		if($this->msg == "")
 		{

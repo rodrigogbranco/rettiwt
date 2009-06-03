@@ -23,7 +23,7 @@
 			<?php if($this->specifiedMsg != "")
 			{?>
 				<div id="fail">
-					<?php echo $this->specified; ?>
+					<?php echo $this->specifiedMsg; ?>
 				</div>
 			<?php 
 			} 
