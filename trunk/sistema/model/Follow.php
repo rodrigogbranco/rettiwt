@@ -3,35 +3,27 @@
 require_once "sistema/componentes/acessabd/acessabd.class.php";
 
 //Classe que instancia um Usuario
-class User extends AcessaBD
+class Follow extends AcessaBD
 {
 	/*Dados do banco de Dados*/
-	var $id; //id do usuário no banco de dados
-	var $password; //password do usuario
-	var $email; //email do usuario
-	var $alias; //nickname do usuario
-	var $foto; //cores especificas do usuario
-
+	var $id; //id do follow
+	var $id_user; //id do usuario
+	var $id_user_follow; //id do usuario que está seguindo
 
 	/*Construtor*/
 	function __construct ( $nomeCampo = null, $valorCampo = null )
 	{
 		$this->nomeTabela = "user";
-		$this->nomeCampos = array("id","password","email","alias","foto");
+		$this->nomeCampos = array("id","id_user","id_user_follow");
 		
     		parent::__construct($nomeCampo, $valorCampo);
 	}
 
 	/*Função de validação do usuário*/
-	function validUser()
+	function validFollow()
 	{
 		//verifica se a instanciação foi correta
 		return ($this->id > 0);
-	}
-	
-	function getPassword()
-	{
-		return $this->password;
 	}
 }
 ?>
