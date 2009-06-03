@@ -1,12 +1,19 @@
 			<?php //Variavel $this é uma instancia de AnonimousView// ?>
 			
 		<div id="top">
-			<p>top</p>
+		
 		</div>
 	
 		<div id="container">
 		
 			<div id="welcome">
+				<div id="menu">
+					<a href="#">Home</a> | 
+					<a href="#">Configurações</a> |
+					<a href="#">Ajuda</a> |
+					<a href="#">Sair</a>
+				</div>
+				
 				<?php if($controller->activeUser)
 				{?>
 					<p>Olá, <?php echo $this->user->alias; ?></p>
@@ -23,19 +30,20 @@
 					<ul class="navlist">
 						<li><a href="#">Seguindo</a>
 							<ul class="subnavlist">
-								<li><a href="#"> >> Subitem one</a></li>
-								<li><a href="#"> >> Subitem two</a></li>
-								<li><a href="#"> >> Subitem three</a></li>
-								<li><a href="#"> >> Subitem four</a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
 							</ul>
 						</li>
 						
 						<li><a href="#">Seguido por</a>
 							<ul class="subnavlist">
-								<li><a href="#"> >> 1</a></li>
-								<li><a href="#"> >> 2</a></li>
-								<li><a href="#"> >> 3</a></li>
-								<li><a href="#"> >> 4</a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="teste.png"></a></li>
 							</ul>
 						</li>
 						

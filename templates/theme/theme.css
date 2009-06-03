@@ -43,7 +43,7 @@
 
 #top
 {
-	text-align: right;
+	height: 30px;	
 }
 
 #container
@@ -56,6 +56,25 @@
 {
 	background-color: #80FF80;
 	height: 61px;
+}
+
+#welcome #menu
+{
+	float: right;
+	padding-top: 2px;
+	font-family: arial;
+	font-size: small;
+	text-align: center;
+	height: 50px;
+	width: 250px;	
+	background-image: url('../pagina/top.png');
+	background-repeat: no-repeat;
+}
+
+#welcome #menu a
+{
+	color: #000000;
+	text-decoration: none;
 }
 
 #bordertop
@@ -145,7 +164,7 @@ background-color: #80FF80;
 }
 
 ul.subnavlist { display: none; }
-ul.subnavlist li { float: none; width: auto; }
+ul.subnavlist li { float: left; width: 30px; }
 
 ul.subnavlist li a
 {
@@ -159,15 +178,23 @@ display: block;
 position: absolute;
 font-size: 8pt;
 padding-top: 5px;
+width: 120px;
 }
 
 ul.navlist li:hover ul.subnavlist li a
 {
 display: block;
-width: 10em;
+width: 30px;
 border: none;
-padding: 2px;
+padding: 4px;
 }
+
+ul.navlist li:hover ul.subnavlist li a img
+{
+height: 20px;
+width: 20px;
+}
+
 /*
 ul#navlist li:hover ul#subnavlist li a:before
 {
