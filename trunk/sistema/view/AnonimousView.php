@@ -9,9 +9,8 @@ class AnonimousView extends View
 	/*Função de visualização*/
 	function show()
 	{
-		global $controller;
 		//Algum erro foi cometido?
-		if($this->error == "")
+		if($this->msg == "")
 		{
 			//Não ocorreu erro, mas existe um usuário especificado?
 			if($this->user)
@@ -23,11 +22,11 @@ class AnonimousView extends View
 		else
 		{
 			//Um erro foi detectado, vamos ver qual é...
-			switch($this->error)
+			switch($this->msg)
 			{
 				//Usuário desconhecido
 				case "unknownUser":
-					$this->specifiedMsgError = "Usuário Desconhecido";
+					$this->specifiedMsg = "Usuário Desconhecido";
 					break;
 			}
 			include "sistema/view/include/showDefault.php";

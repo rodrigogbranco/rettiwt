@@ -22,10 +22,10 @@
 				
 			</form>
 			
-			<?php if($this->specifiedMsgError != "")
+			<?php if($this->specifiedMsg != "")
 			{?>
 				<div id="fail">
-					<?php echo $this->specifiedMsgError; ?>
+					<?php echo $this->specifiedMsg; ?>
 				</div>
 			<?php 
 			} 

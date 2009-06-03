@@ -5,8 +5,11 @@ abstract class View
 {
 	//Usuario corrente, se nulo, é um anônimo
 	var $user = null;
-	var $error = "";
-	var $specifiedMsgError = "";
+	
+	//Configuracao das mensagens de controle
+	var $msg = "";
+	var $type = "";
+	var $specifiedMsg = "";
 
 	//html inicial
 	function __construct()
@@ -48,9 +51,10 @@ abstract class View
 	abstract function show();
 
 	//Erros ocorreram
-	function setError($newError)
+	function setMsg($type,$newMsg)
 	{
-		$this->error = $newError;
+		$this->type = $type;
+		$this->msg = $newMsg;
 	}
 }
 

@@ -11,7 +11,7 @@
 					<a href="#">Home</a> | 
 					<a href="#">Configurações</a> |
 					<a href="#">Ajuda</a> |
-					<a href="#">Sair</a>
+					<a href="sistema/view/include/logout.php">Sair</a>
 				</div>
 				
 				<?php if($controller->activeUser)
