@@ -1,16 +1,17 @@
 <?php
 /*
- * GeneralAcessaBD
+ * AcessaBD
  *
- * Interface para controle de acesso ao banco de dados. A partir dela
- * deverão ser implementadas classes para acessos a outros bancos, ex: MySql,
- * PostgreSql.
+ * Classe para controle de acesso ao banco de dados.
  *
  * Será utilizada como um esqueleto para uso dos Modelos que farão acesso ao
- * banco.
+ * banco de forma transparente, sem se importar com qual tipo de banco é associado.
  */
-interface GeneralAcessaBD
+class AcessaBD
 {
+  protected $nomeTabela; //< Nome da tabela que será mapeada na classe
+  protected $nomeCampos; //< Array do nome dos campos da tabela
+
   /**
    * __construct()
    *
@@ -21,85 +22,6 @@ interface GeneralAcessaBD
    * a pesquisa da indexação no banco de dados.
    * @param string valorCampo O valor do campo especificado no primeiro parâmetro.
    */
-  function __construct ($nomeCampo = '', $valorCampo = '');
-
-  /**
-   * load()
-   *
-   * Carrega os dados da tabela do banco de dados para a instância do modelo.
-   */
-  function load();
-
-  /**
-   * insert()
-   *
-   * Este método insere no banco de dados um novo registro com os dados armazenados
-   * no modelo.
-   */
-  function insert();
-
- /**
-   * update()
-   *
-   * Este método atualiza no banco de dados um registro com os dados armazenados
-   * no modelo.
-   */
-  function update();
-
-/**
- * remove()
- *
- * Este método remove da tabela no banco de dados o registro existente
- * do modelo.
- */
-  function remove();
-
-/**
- * save()
- *
- * Este método salva no banco de dados com os dados existentes nas variáveis
- * do modelo.
- */
-  function save();
-
-/**
- * bind()
- *
- * Este método analisa os dados recebidos via variável $_REQUEST e atualiza
- * o modelo com ela. Útil para receber dados de formulários sem precisar
- * setar os valores do modelo manualmente.
- */
-  function bind();
-
-  /**
- * bindArray()
- *
- * Este método analisa os dados recebidos via vetor $arrayDados e atualiza
- * o modelo com ela. Útil para receber dados de formulários sem precisar
- * setar os valores do modelo manualmente.
- * @param array $arrayDados Vetor contendo os dados que serão usados para
- * popular o modelo
- */
-  function bindArray($arrayDados);
-}
-
-/*
- * AcessaBD
- *
- * Classe para controle de acesso ao banco de dados.
- *
- * Será utilizada como um esqueleto para uso dos Modelos que farão acesso ao
- * banco de forma transparente, sem se importar com qual tipo de banco é associado.
- */
-class AcessaBD implements GeneralAcessaBD
-{
-  protected $nomeTabela; //< Nome da tabela que será mapeada na classe
-  protected $nomeCampos; //< Array do nome dos campos da tabela
-
-//  Cabecalho do Gelinho... Apenas esta aqui para questao de registro, vc vai ter que adaptar isso no seu codigo :P
-//  E so para constar, vc vai boatr o nome da tabela no seu modelo que ESTENDER essa classe, e nao aqui. Essa classe eh generica.
-//  function __construct ($tabela, $id = -1)
-
   function __construct ($nomeCampo = '', $valorCampo = '')
   {
     if ((!empty($nomeCampo)) && (!empty($valorCampo)))
@@ -148,6 +70,11 @@ class AcessaBD implements GeneralAcessaBD
     }
   }
 
+  /**
+   * load()
+   *
+   * Carrega os dados da tabela do banco de dados para a instância do modelo.
+   */
   function load()
   {
     global $bd;
@@ -170,6 +97,12 @@ class AcessaBD implements GeneralAcessaBD
     }
   }
 
+/**
+   * update()
+   *
+   * Este método atualiza no banco de dados um registro com os dados armazenados
+   * no modelo.
+   */
   function update()
   {
     global $bd;
@@ -197,6 +130,12 @@ class AcessaBD implements GeneralAcessaBD
     $bd->query($queryString);
   }
 
+  /**
+   * insert()
+   *
+   * Este método insere no banco de dados um novo registro com os dados armazenados
+   * no modelo.
+   */
   function insert()
   {
     global $bd;
@@ -248,6 +187,12 @@ class AcessaBD implements GeneralAcessaBD
     $bd->query($queryString);
   }
 
+/**
+ * remove()
+ *
+ * Este método remove da tabela no banco de dados o registro existente
+ * do modelo.
+ */
   function remove()
   {
     global $bd;
@@ -261,6 +206,12 @@ class AcessaBD implements GeneralAcessaBD
     $bd->query($queryString);
   }
 
+/**
+ * save()
+ *
+ * Este método salva no banco de dados com os dados existentes nas variáveis
+ * do modelo.
+ */
   function save()
   {
     global $bd;
@@ -278,11 +229,27 @@ class AcessaBD implements GeneralAcessaBD
     }
   }
 
+/**
+ * bind()
+ *
+ * Este método analisa os dados recebidos via variável $_REQUEST e atualiza
+ * o modelo com ela. Útil para receber dados de formulários sem precisar
+ * setar os valores do modelo manualmente.
+ */
   function bind()
   {
     $this->bindArray($_REQUEST);
   }
 
+  /**
+ * bindArray()
+ *
+ * Este método analisa os dados recebidos via vetor $arrayDados e atualiza
+ * o modelo com ela. Útil para receber dados de formulários sem precisar
+ * setar os valores do modelo manualmente.
+ * @param array $arrayDados Vetor contendo os dados que serão usados para
+ * popular o modelo
+ */
   function bindArray($arrayDados)
   {
     if (is_array($arrayDados))
