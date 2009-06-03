@@ -7,18 +7,21 @@ class Twitt extends AcessaBD
 {
 	/*Dados do banco de Dados*/
 	public $id; //id do twitt no banco de dados
+	public $id_user; //id do usuário que postou o twitt
 	public $text; //texto do usuário
 	public $date; //data da postagem do twitt
 	public $time; //hora da postagem do twitt
+	public $file;
+	public $reply;
 	
 
 	/*Construtor*/
 	function __construct ( $nomeCampo = null, $valorCampo = null )
 	{
 		$this->nomeTabela = "twitt";
-		$this->nomeCampos = array("id","text","date","time");
+		$this->nomeCampos = array("id","id_user", "text","date","time", "file", "reply");
 		
-    parent::__construct($nomeCampo, $valorCampo);
+     		parent::__construct($nomeCampo, $valorCampo);
 	}
 
 	/*Função de validação do twitt*/
