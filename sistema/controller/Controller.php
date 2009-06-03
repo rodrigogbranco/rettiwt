@@ -21,6 +21,7 @@ class Controller
 		//A variavel de controle de usuario está setada?
 		if(isset($_SESSION['user']))
 		{
+			var_dump($_SESSION);
 			//Instanciando o usuario
 			$user = new User('alias',$_SESSION['user']);
 			
@@ -64,7 +65,7 @@ class Controller
 				$this->visualizedUser = $user; 
 			}
 			else
-				$view->setError("unknownUser"); //É claro que não
+				$view->setMsg("error","unknownUser"); //É claro que não
 				
 		}
 
@@ -104,16 +105,23 @@ class Controller
 						/*Vamos persistir o indivíduo*/
 						$user->save();
 						
-						echo "So pra testar se gravou";
+						$view->setUser($user); //Logon permitido
+						$this->activeUser = $user; //Registrando o Usuário ativo
+						$this->visualisedUser = $user;
+						$this->activeSession = true;
+						//registrando a sessão
+						$_SESSION['user'] = $user->alias;
+						
+						$view=setMsg("information","newUser");
 					}
 					else
-						$view->setError('registeredAlias'); //Ja tem um caboclo com esse alias.
+						$view->setMsg('error','registeredAlias'); //Ja tem um caboclo com esse alias.
 				}
 				else
-					$view->setError('registeredEmail'); //Ja tem um caboclo com esse email.
+					$view->setMsg('error','registeredEmail'); //Ja tem um caboclo com esse email.
 			}
 			else
-				$view->setError('mismatchPassword'); //Ops!
+				$view->setMsg('error','mismatchPassword'); //Ops!
 		}
 		else if (isset($_POST['cadastro'])) //verificar se o cadastro foi solicitado
 		{
@@ -129,7 +137,7 @@ class Controller
 
 			//Verifica se o User foi instanciado
 			if (!$user->validUser())
-				$view->setError("invalidUser"); //Ops, usuário inválido
+				$view->setMsg("error","invalidUser"); //Ops, usuário inválido
 			else
 			{
 				//Será que é o usuário mesmo?
@@ -143,7 +151,7 @@ class Controller
 					$_SESSION['user'] = $user->alias;
 				}
 				else
-					$view->setError("invalidPassword"); //Erro de senha
+					$view->setMsg("error","invalidPassword"); //Erro de senha
 			}
 		}
 		else if(isset($_GET['alias'])) //Verifica se algo vem por GET			
@@ -158,7 +166,7 @@ class Controller
 			
 			//Verifica se o User foi instanciado
 			if (!$user->validUser())
-				$view->setError("unknownUser"); //Ops, usuário desconhecido
+				$view->setMsg("error","unknownUser"); //Ops, usuário desconhecido
 			else
 			{
 				$view->setUser($user); //Usuário foi encontrado

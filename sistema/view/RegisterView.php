@@ -9,24 +9,23 @@ class RegisterView extends View
 	//Função de exibição	
 	function show()
 	{
-		global $controller;
 		//Algum erro foi cometido?
-		if($this->error != "")
+		if($this->msg != "")
 		{
 			//Um erro foi detectado, vamos ver qual é...
-			switch($this->error)
+			switch($this->msg)
 			{
 				//Usuário inválido
 				case "mismatchPassword":
-					$this->specifiedMsgError = "Password não confere, tente novamente";
+					$this->specifiedMsg = "Password não confere, tente novamente";
 					break;
 				//Já existe email cadastrado
 				case "registeredEmail":
-					$this->specifiedMsgError = "Esse email já consta nos registros, por favor coloque outro";
+					$this->specifiedMsg = "Esse email já consta nos registros, por favor coloque outro";
 					break;
 				//Já existe alias cadastrado
 				case "registeredAlias":
-					$this->specifiedMsgError = "Esse Alias já consta nos registros, por favor coloque outro";
+					$this->specifiedMsg = "Esse Alias já consta nos registros, por favor coloque outro";
 					break;
 			}
 		}
