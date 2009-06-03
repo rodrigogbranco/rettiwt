@@ -31,7 +31,7 @@ class RegisterView extends View
 			}
 		}
 		/*inclua o arquivo para visualizar*/
-		include "sistema/view/showRegisterForm.php";
+		include "sistema/view/include/showRegisterForm.php";
 	}
 }
 

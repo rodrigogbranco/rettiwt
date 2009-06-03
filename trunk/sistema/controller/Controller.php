@@ -12,8 +12,68 @@ class Controller
 	//Usuário ativo para controle de seção
 	var $activeUser = null;
 	var $visualisedUser = null;
+	var $activeSession = false;
+	
+	
 	//função que invoca o controller
 	function run()
+	{
+		//A variavel de controle de usuario está setada?
+		if(isset($_SESSION['user']))
+		{
+			//Instanciando o usuario
+			$user = new User('alias',$_SESSION['user']);
+			
+			//O usuario esta ativo?
+			if($user->validUser())
+			{
+				//eba, ta sim
+				$this->activeUser = $user;
+				//a sessao tem boa procedência
+				$this->activeSession = true;
+			}
+		}
+
+		//A sessão é valida?
+		if ($this->activeSession)
+			$this->registeredSession();
+		else
+			$this->unRegisteredSession();
+				
+	}
+	
+	//funcao que trata uma sessao registrada
+	function registeredSession()
+	{
+		//Instanciando a visao de usuario
+		$view = new UserView();
+
+		//O usuario quer ver outro usuario?
+		if(isset($_GET['alias']))
+		{
+			
+			//O usuario existe?
+			$user = new User('alias',$_GET['alias']);
+			
+			//É claro que sim!
+			if($user->validUser())
+			{
+				//Avisa a sessao quem é pra mostrar
+				$view->setUser($user);
+				//Salvando o estado
+				$this->visualizedUser = $user; 
+			}
+			else
+				$view->setError("unknownUser"); //É claro que não
+				
+		}
+
+		//Mostra a visao
+		$view->show();
+	}
+
+	//funcao que trata uma sessao nao registrada
+	function unRegisteredSession()
 	{
 		if (isset($_POST['validarcadastro'])) //verificar se há um cadastro para efetuar
 		{
@@ -77,6 +137,10 @@ class Controller
 				{
 					$view->setUser($user); //Logon permitido
 					$this->activeUser = $user; //Registrando o Usuário ativo
+					$this->visualisedUser = $user;
+					$this->activeSession = true;
+					//registrando a sessão
+					$_SESSION['user'] = $user->alias;
 				}
 				else
 					$view->setError("invalidPassword"); //Erro de senha

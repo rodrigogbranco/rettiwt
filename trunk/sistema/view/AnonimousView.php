@@ -15,9 +15,9 @@ class AnonimousView extends View
 		{
 			//Não ocorreu erro, mas existe um usuário especificado?
 			if($this->user)
-				include "sistema/view/showUser.php";
+				include "sistema/view/include/showUser.php";
 			else
-				include "sistema/view/showDefault.php";
+				include "sistema/view/include/showDefault.php";
 
 		}
 		else
@@ -30,7 +30,7 @@ class AnonimousView extends View
 					$this->specifiedMsgError = "Usuário Desconhecido";
 					break;
 			}
-			include "sistema/view/showDefault.php";
+			include "sistema/view/include/showDefault.php";
 
 		}
 	}
