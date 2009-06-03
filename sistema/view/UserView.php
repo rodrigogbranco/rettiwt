@@ -13,7 +13,7 @@ class UserView extends View
 		//Algum erro foi cometido?
 		if($this->error == "")
 		{
-			include "sistema/view/showUser.php";
+			include "sistema/view/include/showUser.php";
 		}
 		else
 		{
@@ -28,7 +28,7 @@ class UserView extends View
 					$this->specifiedMsgError = "Password Inválido";
 					break;
 			}
-			include "sistema/view/showDefault.php";
+			include "sistema/view/include/showDefault.php";
 
 		}
 	}
