@@ -6,17 +6,15 @@
 	
 		<div id="container">
 		
-			<div id="welcome">
-				<div id="menu">
-					<a href="#">Home</a> | 
-					<a href="#">Configurações</a> |
-					<a href="#">Ajuda</a> |
-					<a href="sistema/view/include/logout.php">Sair</a>
-				</div>
-				
-				<?php if($controller->activeUser)
+			<div id="welcome">			
+				<?php if($controller->activeSession)
 				{?>
-					<p>Olá, <?php echo $this->user->alias; ?></p>
+					<div id="menu">
+						<a href="#">Home</a> | 
+						<a href="#">Configurações</a> |
+						<a href="#">Ajuda</a> |
+						<a href="sistema/view/include/logout.php">Sair</a>
+					</div>
 				<?php 
 				}else
 				{
@@ -25,6 +23,10 @@
 				<?php
 				}
 				?>
+				<div id="informacoes">
+					<p>Figura</p>
+					<p><strong><?php echo $this->user->alias; ?></strong></p>
+				</div>	
 			
 				<div id="navcontainer">
 					<ul class="navlist">

@@ -21,7 +21,6 @@ class Controller
 		//A variavel de controle de usuario está setada?
 		if(isset($_SESSION['user']))
 		{
-			var_dump($_SESSION);
 			//Instanciando o usuario
 			$user = new User('alias',$_SESSION['user']);
 			
