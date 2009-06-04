@@ -47,9 +47,8 @@ class TwittController
 		global $bd;
 		
 		$twitts = $bd->fetch_object_list($select,'Twitt');
-
 		
-		//var_dump($twitts);
+
 		return $twitts;
 	}
 	

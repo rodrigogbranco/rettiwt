@@ -5,6 +5,7 @@ require_once("sistema/view/AnonimousView.php");
 require_once("sistema/view/UserView.php");
 require_once("sistema/view/RegisterView.php");
 require_once("sistema/model/User.php");
+require_once("sistema/controller/TwittControler.php");
 
 /*Classe do Controlador*/
 class Controller
@@ -13,6 +14,7 @@ class Controller
 	var $activeUser = null;
 	var $visualisedUser = null;
 	var $activeSession = false;
+	var $twitt = null;
 	
 	
 	//função que invoca o controller
@@ -60,6 +62,7 @@ class Controller
 			{
 				//Avisa a sessao quem é pra mostrar
 				$view->setUser($user);
+				$this->twitt = new TwittController($user->id);
 				//Salvando o estado
 				$this->visualisedUser = $user; 
 			}
@@ -70,6 +73,7 @@ class Controller
 		else
 		{
 			$view->setUser($this->activeUser);
+			$this->twitt = new TwittController($this->activeUser->id);
 			$this->visualisedUser = $this->activeUser;
 		}
 		
@@ -112,6 +116,7 @@ class Controller
 						
 						$view =  new UserView();
 						$view->setUser($user); //Logon permitido
+						$this->twitt = new TwittController($user->id);
 						$this->activeUser = $user; //Registrando o Usuário ativo
 						$this->visualisedUser = $user;
 						$this->activeSession = true;
@@ -149,7 +154,9 @@ class Controller
 				//Será que é o usuário mesmo?
 				if(sha1($_POST['password']) == $user->getPassword())
 				{
+					echo "aki";
 					$view->setUser($user); //Logon permitido
+					$this->twitt = new TwittController($user->id);
 					$this->activeUser = $user; //Registrando o Usuário ativo
 					$this->visualisedUser = $user;
 					$this->activeSession = true;
@@ -176,6 +183,7 @@ class Controller
 			else
 			{
 				$view->setUser($user); //Usuário foi encontrado
+				$this->twitt = new TwittController($user->id);
 				$this->visualisedUser = $user;
 			}
 		}

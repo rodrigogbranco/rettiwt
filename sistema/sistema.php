@@ -8,6 +8,4 @@ require_once ('sistema/config.inc.php');
 require_once ('sistema/componentes/bd/controladorbd.class.php');
 
 $bd = ControladorBD::inicializar($config);
-
-
 ?>

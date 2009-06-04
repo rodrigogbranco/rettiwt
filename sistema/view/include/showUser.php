@@ -19,7 +19,12 @@
 				}else
 				{
 				?>
-					<p><?php echo $this->user->alias; ?> está no Rettwit. Você está? Faça parte agora!</p>
+					<p><?php echo $this->user->alias; ?> está no Rettwit. Você está? Faça parte agora!
+					  <form method="post" action="index.php">
+                    <input type="submit" value="Cadastre agora!">
+                    <input type="hidden" name="cadastro" value="newcadastro">
+                 </form>
+					 </p>					
 				<?php
 				}
 				?>
@@ -98,20 +103,37 @@
 		&nbsp;
 			<div id="bordertop">&nbsp;</div>
 			
+			<?php 
+				if($controller->activeUser->alias == $controller->visualisedUser->alias)
+					$twittMsgs = $controller->twitt->showAllMessage();
+				else
+					$twittMsgs = $controller->twitt->showMessage(); ?>			
+			
 			<div id="content">
-				<div class="msg">
-					<div class="msg_content">texto hauhsuhaushua teste ahauahuahuahauhau</div>
-					<div class="msg_user">
-						<a href="#">foto</a>
-					</div>
-				</div>
-				
-				<div class="msg">
-					<div class="msg_content">mensagem a ser exibida</div>
-					<div class="msg_user">
-						<a href="#">foto</a>
-					</div>
-				</div>
+					<?php
+					if ($twittMsgs != null)
+					{
+					foreach($twittMsgs as $msgInstance)
+					{
+					?>
+						<div class="msg">
+							<div class="msg_alias"><?php echo $msgInstance->getUser()->alias; ?></div>
+							<div class="msg_content"><?php echo $msgInstance->text;?></div>
+							<div class="msg_user">
+								<img src="<?php echo $msgInstance->getUser()->returnAvatar; ?>"/>
+							</div>
+						</div>
+						<hr>
+					<?php
+					}
+					}
+					else
+					{
+					?>
+					Não a Mensagens a exibir.
+					<?php
+					}
+					?>
 			</div>
 			
 			<div id="borderbottom">&nbsp;</div>
