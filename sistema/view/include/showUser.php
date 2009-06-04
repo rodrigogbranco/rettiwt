@@ -43,7 +43,7 @@ else
 }
 echo ' ">';
 ?>
-					<strong>figura<?php echo $this->user->alias; ?></strong></p>
+					<strong><?php echo $this->user->alias; ?></strong></p>
 				
 					<?php if($controller->activeSession)
 					{
@@ -132,7 +132,19 @@ echo ' ">';
 							<div class="msg_alias"><?php echo $msgInstance->getUser()->alias; ?></div>
 							<div class="msg_content"><?php echo $msgInstance->text;?></div>
 							<div class="msg_user">
-								<img src="<?php echo $msgInstance->getUser()->returnAvatar; ?>"/>
+              <?php
+              $avatar = $msgInstance->user->returnAvatar();
+              echo '<img width="60" height="60" src="';
+              if (!empty($avatar))
+              {
+                echo $avatar;
+              }
+              else
+              {
+                echo 'templates/theme/image/teste.png';
+              }
+              echo ' "/>';
+              ?>
 							</div>
 						</div>
 						<hr>
