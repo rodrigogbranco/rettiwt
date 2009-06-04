@@ -7,10 +7,13 @@ require_once("sistema/sistema.php");
 require_once("./sistema/controller/Controller.php");
 require_once($diretorioSistemaComponentes."multimidia/multimidia.class.php");
 
+$usuario = new User('alias', 'renan');
+
 $imagem = new Multimidia();
 $imagem->tipo = Multimidia::IMAGEM;
+$imagem->id_usuario = $usuario->id;
 $imagem->save('arquivo');
-$imagem->resizeImage(500,0);
+$imagem->resizeImage(60,60);
 
 
 ?>
