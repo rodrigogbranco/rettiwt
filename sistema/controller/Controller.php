@@ -6,6 +6,7 @@ require_once("sistema/view/UserView.php");
 require_once("sistema/view/RegisterView.php");
 require_once("sistema/model/User.php");
 require_once("sistema/controller/TwittControler.php");
+require_once("sistema/controller/FollowController.php");
 
 /*Classe do Controlador*/
 class Controller
@@ -15,6 +16,7 @@ class Controller
 	var $visualisedUser = null;
 	var $activeSession = false;
 	var $twitt = null;
+	var $follow = null;
 	
 	
 	//função que invoca o controller
@@ -72,6 +74,7 @@ class Controller
 				//Avisa a sessao quem é pra mostrar
 				$view->setUser($user);
 				$this->twitt = new TwittController($user->id);
+				$this->follow = new FollowController($user->id);
 				//Salvando o estado
 				$this->visualisedUser = $user; 
 			}
@@ -83,6 +86,7 @@ class Controller
 		{
 			$view->setUser($this->activeUser);
 			$this->twitt = new TwittController($this->activeUser->id);
+			$this->follow = new FollowController($this->activeUser->id);
 			$this->visualisedUser = $this->activeUser;
 		}
 		
@@ -126,6 +130,7 @@ class Controller
 						$view =  new UserView();
 						$view->setUser($user); //Logon permitido
 						$this->twitt = new TwittController($user->id);
+						$this->follow = new FollowController($user->id);
 						$this->activeUser = $user; //Registrando o Usuário ativo
 						$this->visualisedUser = $user;
 						$this->activeSession = true;
@@ -165,6 +170,7 @@ class Controller
 				{
 					$view->setUser($user); //Logon permitido
 					$this->twitt = new TwittController($user->id);
+					$this->follow = new FollowController($user->id);
 					$this->activeUser = $user; //Registrando o Usuário ativo
 					$this->visualisedUser = $user;
 					$this->activeSession = true;
@@ -192,6 +198,7 @@ class Controller
 			{
 				$view->setUser($user); //Usuário foi encontrado
 				$this->twitt = new TwittController($user->id);
+				$this->follow = new FollowController($user->id);
 				$this->visualisedUser = $user;
 			}
 		}
