@@ -53,13 +53,13 @@ class FollowController
 	// a função insere  este relacionamento no banco de dados
 	function insert($id_user_follow)
 	{
-		$follow = new Follow();
+	
+		$insert = "INSERT INTO follow ( id_user, id_user_follow) 
+				 VALUES ('.$this->userId.', '$id_user_follow') "; 
+	
+		global $bd;
+		$bd->query($insert);
 		
-		$follow->id_user = $this->userId;
-		$follow->id_user_follow = $id_user_follow;
-		
-		$follow->save();
-		echo "qq merda"; 
 	}
 	
 }
