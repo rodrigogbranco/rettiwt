@@ -28,7 +28,7 @@ class TwittController
 				    
 		global $bd;
 		
-		$twitts = $bd->fetch_array_list($select,'Twitt');
+		$twitts = $bd->fetch_object_list($select,'Twitt');
 		
 		//var_dump($twitts);
 		return $twitts;
@@ -46,36 +46,21 @@ class TwittController
 				    
 		global $bd;
 		
-		$twitts = $bd->fetch_array_list($select,'Twitt');
+		$twitts = $bd->fetch_object_list($select,'Twitt');
 
 		
-		var_dump($twitts);
+		//var_dump($twitts);
 		return $twitts;
 	}
 	
 	//recebe os paramentros de um twitt e cria um novo twitt e insere no banco de dados
 	function insertTwitt( $text, $id_multimidia = null, $reply = null){
-	
-		/*$twitt = new Twitt();
-		$twitt->id_user = $this->twittUser;
-		$twitt->text = $text;
-		$twitt->date = $date;
-		$twitt->time = $time;
-		$twitt->id_multimidia = $id_multimidia;
-		$twitt->reply = $reply;*/
 		
-	$insert = "INSERT INTO twitt (id_user, text, date, time, id_multimidia, reply) 
+		$insert = "INSERT INTO twitt (id_user, text, date, time, id_multimidia, reply) 
 				 VALUES ('.$this->twittUser.', '.$text', curdate(), curtime() ,'.$id_multimidia.', '.$reply.') "; 
-				 
-	/*	$insert = "INSERT INTO twitt (id_user, text, date, time, id_multimidia, reply) 
-				 VALUES ( 6 , 'sdftdfg', curdate(), curtime() ,2, 8) "; */
-			 
-		
+	
 		global $bd;
-		
-		 $bd->query($insert);
-		//$twitt->validTwitt();
-		//$twitt->save();
+		$bd->query($insert);
 	
 	}
 	
