@@ -20,19 +20,20 @@
 				}else
 				{
 				?>
-					<p><?php echo $this->user->alias; ?> está no Rettwit. Você está? Faça parte agora!
+					<div id="nouser">
+                    <?php echo $this->user->alias; ?> está no Rettwit. Você está? Faça parte agora!
 					  <form method="post" action="index.php">
-                    <input type="submit" value="Cadastre agora!">
-                    <input type="hidden" name="cadastro" value="newcadastro">
-                 </form>
-					 </p>					
+                        <input type="submit" value="Cadastre agora!">
+                        <input type="hidden" name="cadastro" value="newcadastro">
+                    </form>
+                    </div>
 				<?php
 				}
 				?>
 				<div id="informacoes">
-				<p>
-<?php echo $this->user->returnAvatar(); ?>
-					<strong><?php echo $this->user->alias; ?></strong></p>
+				
+                    <?php echo $this->user->returnAvatar(); ?>
+					<strong><?php echo $this->user->alias; ?></strong>
 				
 					<?php if($controller->activeSession)
 					{
@@ -159,7 +160,8 @@
 							</div>
 							<div class="msg_content"><?php echo $msgInstance->text;?></div>
 							<div class="msg_user">
-              <?php echo $msgInstance->getUser()->returnAvatar(); ?>
+                                  <?php echo $msgInstance->getUser()->returnAvatar(); ?>
+                            </div>
 							<div class="msg_hour">
 								<em>Mensagem enviada em <?php echo $msgInstance->date; ?>
 									às <?php echo $msgInstance->time; ?></em>
