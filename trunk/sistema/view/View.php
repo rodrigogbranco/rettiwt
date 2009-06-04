@@ -19,7 +19,7 @@ abstract class View
 		<html lang="pt-br">
 			<head>
 				<title>..:: R E T T I W T ::..</title>
-				<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+				<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 				<link href="templates/theme/theme.css" rel="stylesheet" type="text/css">
 			</head>
 			<body>
