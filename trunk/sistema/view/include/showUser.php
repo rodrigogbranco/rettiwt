@@ -10,10 +10,11 @@
 				<?php if($controller->activeSession)
 				{?>
 					<div id="menu">
-						<a href="#">Home</a> | 
-						<a href="#">Configurações</a> |
-						<a href="#">Ajuda</a> |
-						<a href="sistema/view/include/logout.php">Sair</a>
+						<form method="get" action="index.php">
+							<input class="button" type="submit" value="Home"> |
+							<input type="hidden" name="alias" value="<?php echo $controller->activeUser->alias; ?>">
+							<input class="button" type="submit" name="logout" value="Sair">
+						</form> 
 					</div>
 				<?php 
 				}else
@@ -29,20 +30,21 @@
 				}
 				?>
 				<div id="informacoes">
-				<p>
-<?php
-$avatar = $this->user->returnAvatar();
-echo '<img width="60" height="60" src="';
-if (!empty($avatar))
-{
-	echo $avatar;
-}
-else
-{
-	echo 'templates/theme/image/teste.png';
-}
-echo ' ">';
-?>
+
+					<p>
+					<?php
+					$avatar = $this->user->returnAvatar();
+					echo '<img width="60" height="60" src="';
+					if (!empty($avatar))
+					{
+						echo $avatar;
+					}
+					else
+					{
+						echo 'templates/theme/image/teste.png';
+					}
+					echo ' ">';
+					?>
 					<strong><?php echo $this->user->alias; ?></strong></p>
 				
 					<?php if($controller->activeSession)
@@ -84,7 +86,9 @@ echo ' ">';
 				}
 				?>	
 
-			
+				<?php if($this->type != "error")
+				{
+				?>
 				<div id="navcontainer">
 					<ul class="navlist">
 						<li><a href="#">Seguindo</a>
@@ -129,22 +133,32 @@ echo ' ">';
 					{
 					?>
 						<div class="msg">
-							<div class="msg_alias"><?php echo $msgInstance->getUser()->alias; ?></div>
+							<div class="msg_alias">
+								<form method="get" action="index.php">
+									<?php 
+										if ($msgInstance->reply != null)
+											echo "#";
+									?>
+									<input class="button" type="submit" name="alias" 
+										value="
+										<?php echo $msgInstance->getUser()->alias; ?>">
+								</form>
+							</div>
 							<div class="msg_content"><?php echo $msgInstance->text;?></div>
 							<div class="msg_user">
-              <?php
-              $avatar = $msgInstance->user->returnAvatar();
-              echo '<img width="60" height="60" src="';
-              if (!empty($avatar))
-              {
-                echo $avatar;
-              }
-              else
-              {
-                echo 'templates/theme/image/teste.png';
-              }
-              echo ' "/>';
-              ?>
+              			<?php
+             			 $avatar = $msgInstance->getUser()->returnAvatar();
+              				echo '<img width="60" height="60" src="';
+             				 if (!empty($avatar))
+             				 {
+                				echo $avatar;
+              				 }
+             				 else
+              				 {
+               				 echo 'templates/theme/image/teste.png';
+              				 }
+              				echo ' "/>';
+             				 ?>
 							</div>
 						</div>
 						<hr>
@@ -163,6 +177,9 @@ echo ' ">';
 			<div id="borderbottom">&nbsp;</div>
 		
 		</div>
+		<?php
+		}
+		?>
 		
 		<div id="bottom">
 			<p>Bottom</p>

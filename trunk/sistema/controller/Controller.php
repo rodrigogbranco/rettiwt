@@ -20,6 +20,15 @@ class Controller
 	//função que invoca o controller
 	function run()
 	{
+		//Verificando se é solicitado matar a sessão
+		if (isset($_GET['logout']))
+		{
+			//matando a sessão
+			session_destroy();
+			
+			//Redirecionando para a index
+			header("Location:index.php");
+		}
 		//A variavel de controle de usuario está setada?
 		if(isset($_SESSION['user']))
 		{
@@ -154,7 +163,6 @@ class Controller
 				//Será que é o usuário mesmo?
 				if(sha1($_POST['password']) == $user->getPassword())
 				{
-					echo "aki";
 					$view->setUser($user); //Logon permitido
 					$this->twitt = new TwittController($user->id);
 					$this->activeUser = $user; //Registrando o Usuário ativo
