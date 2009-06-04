@@ -31,6 +31,7 @@ class Controller
 			//Redirecionando para a index
 			header("Location:index.php");
 		}
+		
 		//A variavel de controle de usuario está setada?
 		if(isset($_SESSION['user']))
 		{
