@@ -1,4 +1,4 @@
-			<?php //Variavel $this é uma instancia de AnonimousView// ?>
+			<?php //Variavel $this Ã© uma instancia de AnonimousView// ?>
 			
 		<div id="top">
 		
@@ -11,7 +11,7 @@
 				{?>
 					<div id="menu">
 						<a href="#">Home</a> | 
-						<a href="#">Configurações</a> |
+						<a href="#">ConfiguraÃ§Ãµes</a> |
 						<a href="#">Ajuda</a> |
 						<a href="sistema/view/include/logout.php">Sair</a>
 					</div>
@@ -19,12 +19,15 @@
 				}else
 				{
 				?>
-					<p><?php echo $this->user->alias; ?> está no Rettwit. Você está? Faça parte agora!</p>
+					<p><?php echo $this->user->alias; ?> estÃ¡ no Rettwit. VocÃª estÃ¡? FaÃ§a parte agora!</p>
 				<?php
 				}
 				?>
 				<div id="informacoes">
-					<p>Figura    <strong><?php echo $this->user->alias; ?></strong>
+
+					<p><img src="templates/theme/image/teste.png">
+					<strong>figura<?php echo $this->user->alias; ?></strong></p>
+				
 					<?php if($controller->activeSession)
 					{
 						if($controller->activeUser->alias != $controller->visualisedUser->alias)
@@ -63,25 +66,27 @@
 					<?php
 				}
 				?>	
+
 			
 				<div id="navcontainer">
 					<ul class="navlist">
 						<li><a href="#">Seguindo</a>
 							<ul class="subnavlist">
-								<li><a href="#"><img src="teste.png"></a></li>
-								<li><a href="#"><img src="teste.png"></a></li>
-								<li><a href="#"><img src="teste.png"></a></li>
-								<li><a href="#"><img src="teste.png"></a></li>
-								<li><a href="#"><img src="teste.png"></a></li>
-								<li><a href="#"><img src="teste.png"></a></li>
-								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
 							</ul>
 						</li>
 						
 						<li><a href="#">Seguido por</a>
 							<ul class="subnavlist">
-								<li><a href="#"><img src="teste.png"></a></li>
-								<li><a href="#"><img src="teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
 							</ul>
 						</li>
 						
@@ -109,7 +114,7 @@
 				</div>
 			</div>
 			
-			<div id="borderbottom">Rodapé</div>
+			<div id="borderbottom">&nbsp;</div>
 		
 		</div>
 		

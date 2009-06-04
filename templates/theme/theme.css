@@ -224,8 +224,10 @@
 
 #welcome
 {
-	background-color: #80FF80;
-	height: 61px;
+	background-image: url('image/welcome.png');
+	background-repeat: no-repeat;
+	height: 91px;
+	width: 650px;
 }
 
 #welcome #menu
@@ -235,10 +237,30 @@
 	font-family: arial;
 	font-size: small;
 	text-align: center;
-	height: 50px;
+	height: 70px;
 	width: 250px;	
-	background-image: url('../pagina/top.png');
+	background-image: url('image/top.png');
 	background-repeat: no-repeat;
+}
+
+#welcome #informacoes p
+{
+	float: left;
+	width: 400px;
+	margin-bottom:0;
+	margin-top:0;
+}
+
+#welcome #informacoes img
+{
+	width: 60px;
+	height: 60px;
+	vertical-align: middle;
+}
+
+#welcome #navcontainer
+{
+	vertical-align: bottom;
 }
 
 #welcome #menu a
@@ -249,13 +271,15 @@
 
 #bordertop
 {
-	background-color: #0080C0;
+	background-image: url('image/bordertop.png');
+	background-repeat: no-repeat;
 	/* sera trocado por uma figura com borda arredondada */
 }
 
 #content
 {
 	background-color: #0080C0;
+	width: 650px;
 }
 
 /*----- inicio pagina de mensagens -----*/
@@ -283,7 +307,8 @@
 
 #borderbottom
 {
-	background-color: #0080C0;
+	background-image: url('image/borderbottom.png');
+	background-repeat: no-repeat;
 	/* sera trocado por uma figura com borda arredondada */
 }
 
