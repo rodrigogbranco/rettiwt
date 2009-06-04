@@ -17,15 +17,15 @@ class RegisterView extends View
 			{
 				//Usuário inválido
 				case "mismatchPassword":
-					$this->specifiedMsg = "Password não confere, tente novamente";
+					$this->specifiedMsg = "Password nao confere, tente novamente";
 					break;
 				//Já existe email cadastrado
 				case "registeredEmail":
-					$this->specifiedMsg = "Esse email já consta nos registros, por favor coloque outro";
+					$this->specifiedMsg = "Esse email ja consta nos registros, por favor coloque outro";
 					break;
 				//Já existe alias cadastrado
 				case "registeredAlias":
-					$this->specifiedMsg = "Esse Alias já consta nos registros, por favor coloque outro";
+					$this->specifiedMsg = "Esse Alias ja consta nos registros, por favor coloque outro";
 					break;
 			}
 		}
