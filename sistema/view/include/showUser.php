@@ -29,8 +29,20 @@
 				}
 				?>
 				<div id="informacoes">
-
-					<p><img src="templates/theme/image/teste.png">
+				<p>
+<?php
+$avatar = $this->user->returnAvatar();
+echo '<img width="60" height="60" src="';
+if (!empty($avatar))
+{
+	echo $avatar;
+}
+else
+{
+	echo 'templates/theme/image/teste.png';
+}
+echo ' ">';
+?>
 					<strong>figura<?php echo $this->user->alias; ?></strong></p>
 				
 					<?php if($controller->activeSession)
