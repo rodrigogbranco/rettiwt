@@ -31,8 +31,9 @@
 				}
 				?>
 				<div id="informacoes">
-				
-                    <?php echo $this->user->returnAvatar(); ?>
+				<?php if($this->user != null)
+				{
+					echo $this->user->returnAvatar(); ?>
 					<strong><?php echo $this->user->alias; ?></strong>
 				
 					<?php if($controller->activeSession)
@@ -44,7 +45,8 @@
 						<?php
 						}
 					}
-					?>
+					
+				}	?>
 				</div>
 				
 				<?php if($this->msg != "")
@@ -93,9 +95,10 @@
 										{
 											?>
 											<li>
-											<input type="submit" name="alias" class="button" 
+											<input type="image" name="alias" class="button" 
 											value="<?php echo $seg->alias; ?>" 
-											src="<?php echo $seg->getUser()->returnAvatarAddress(); ?>"></li>
+											src="<?php echo $seg->getUser()->returnAvatarAddress(); ?>">
+											<?php echo $seg->alias; ?></li>
 											<?php
               						}
               						?>
@@ -129,7 +132,8 @@
 											<li>
 											<input type="image" name="alias" class="button" 
 											value="<?php echo $seg->alias; ?>" 
-											src="<?php echo $seg->getUser()->returnAvatarAddress(); ?>"></li>
+											src="<?php echo $seg->getUser()->returnAvatarAddress(); ?>">
+											<?php echo $seg->alias; ?></li>
 											<?php
               						}
               						?>
@@ -139,7 +143,7 @@
 									else
 									{
 									?>
-									<li><?php echo $user->alias; ?> não está seguindo ninguém</li>
+									<li>Ninguém está seguindo <?php echo $user->alias; ?></li>
 									<?php
 									}
 									?>
@@ -208,6 +212,6 @@
 		<?php
 		}
 		?>
-			<div id="borderbottom">&nbsp;</div>
-			Rodapé
+		<div id="borderbottom">&nbsp;</div>
+			RETTIWT 2009 - Ciência da Computação - UFMS - 2009
 		</div>
