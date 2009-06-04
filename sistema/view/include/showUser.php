@@ -160,6 +160,10 @@
               				echo ' "/>';
              				 ?>
 							</div>
+							<div class="msg_hour">
+								<em>Mensagem enviada em <?php echo $msgInstance->date; ?>
+									às <?php echo $msgInstance->time; ?></em>
+							</div>
 						</div>
 						<hr>
 					<?php
