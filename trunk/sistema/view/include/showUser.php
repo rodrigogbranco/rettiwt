@@ -24,9 +24,45 @@
 				}
 				?>
 				<div id="informacoes">
-					<p>Figura</p>
-					<p><strong><?php echo $this->user->alias; ?></strong></p>
-				</div>	
+					<p>Figura    <strong><?php echo $this->user->alias; ?></strong>
+					<?php if($controller->activeSession)
+					{
+						if($controller->activeUser->alias != $controller->visualisedUser->alias)
+						{
+						?>
+							<a href="#">Seguir</a>
+						<?php
+						}
+					}
+					?>
+				</div>
+				
+				<?php if($this->msg != "")
+				{
+					switch($this->type)
+					{
+						case "error":
+							?>
+							<div id="msgerror">
+							<?php
+							break;
+						case "alert":
+							?>
+							<div id="msgalert">
+							<?php
+							break;
+						case "information":
+							?>
+							<div id="msginfo">
+							<?php
+							break;
+					}
+					echo $this->specifiedMsg;
+					?>
+					</div>
+					<?php
+				}
+				?>	
 			
 				<div id="navcontainer">
 					<ul class="navlist">
