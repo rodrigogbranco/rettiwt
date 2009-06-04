@@ -1,45 +1,215 @@
 /*----- inicio pagina de login -----*/
 
+#divBase
+{
+    background-color: rgb(120,129,144);
+    position: relative;
+    max-width: 725px;
+    max-height: 525px;
+    min-height: 525px;
+    margin: 2% 20%;
+    font-family: sans-serif;
+    border: 1px #000000 solid;
+}
+
+#divBase #imageBack
+{
+    max-width: 600px;
+    margin-left: 10%;
+	margin-right: 10%;
+    max-height: 300px;
+    min-height: 300px;
+    top: 50px;
+    position: relative;
+    background-color: rgb(220,221,216);
+    background-image: url('image/fullLogo.png');
+    background-repeat:no-repeat;
+    background-position: center center;
+    border: 1px solid #000000;
+}
+
+#divcad
+{
+    background-color: rgb(220,221,216);
+    max-width: 600px;
+    margin-left: 10%;
+	margin-right: 10%;
+    max-height: 40px;
+    position: relative;
+    top: 75px;
+    border: 1px solid #000000;
+}
+
+#divcad form
+{
+	text-align: center;
+    max-height: 40px;
+    min-height: 40px;
+}
+
+#divcad form #signUp
+{
+    float: left;
+    position: relative;
+    left: 20%;
+    top: 10px;
+}
+
+#divcad form input
+{
+    float: right;
+    position: relative;
+    right: 20%;
+    top: 9px;
+}
+
 #login
 {
-	margin-left: 40%;
-	margin-right: 40%;
-	margin-top: 200px;
+	
+    background-color: rgb(220,221,216);
+    max-width: 600px;
+    margin-left: 10%;
+	margin-right: 10%;
+    max-height: 40px;
+    position: relative;
+    top: 95px;
+    border: 1px solid #000000;
 }
 
 #login form
 {
-	border: 1px solid #ccc;
+	/*border: 1px solid #ccc;*/
 	text-align: center;
+    max-height: 40px;
+    min-height: 40px;
 }
 
-#login form table
-{
-	border-collapse: separate;
-}
-
-#login form table tr td input
-{
-	margin-bottom: 10px;
-	width: 90%;
-}
-
-#login form table tr td
+#login form #loginRegion
 {
 	float: left;
 	width: auto;
+    position: relative;
+    top: 10px;
+    left: 2%;
+    
+}
+
+#login form #passRegion
+{
+	float: right;
+    width: auto;
+    position: relative;
+    top: 10px;
+    right: 25%;
+}
+
+#login form #loginRegion input
+{ }
+
+#login form #passRegion input
+{ }
+
+#login form #submitRegion
+{
+    width: auto;
+    float: right;
+    position: relative;
+    top: 9px;
+    left: 25%;
 }
 
 #login #fail
 {
-	background-color: #FF69B4;
-	border: 2px solid;
-	color: red;
-	margin-top: 10px;
+	background-color: #ff0000;
+    border: 1px solid;
+	color: black;
 	text-align: center;
+    max-width: 600px;
+    top: 5px;
+    position: relative;
 }
 
 /*----- fim pagina de login -----*/
+
+/*----- inicio pagina de cadastro -----*/
+#newcadastro
+{
+    background-color: rgb(120,129,144);
+    position: relative;
+    max-width: 725px;
+    max-height: 525px;
+    min-height: 525px;
+    margin: 2% 20%;
+    font-family: sans-serif;
+    border: 1px #000000 solid;
+}
+
+#newcadastro #imageCad
+{
+    max-width: 600px;
+    margin-left: 10%;
+	margin-right: 10%;
+    max-height: 425px;
+    min-height: 425px;
+    top: 50px;
+    position: relative;
+    background-color: rgb(220,221,216);
+    background-image: url('image/fullLogo.png');
+    background-repeat:no-repeat;
+    background-position: top center;
+    border: 1px solid #000000;
+}
+
+#newcadastro #imageCad p
+{
+    top: 200px;
+    left: 50px;
+    position: relative;
+}
+
+#newcadastro #imageCad form
+{
+    top: 205px;
+    left: 50px;
+    width: 300px;
+    position: relative;
+}
+
+#newcadastro #imageCad form #cadForm
+{
+    width: 450px;
+}
+
+#newcadastro #imageCad form #cadForm #formConf
+{
+    float: right;
+    position: relative;
+    top: 65px;
+}
+
+#newcadastro #imageCad form #cadForm #formDados
+{
+    float: left;
+    position: relative;
+    width: 300px;
+}
+
+#newcadastro #imageCad form #cadForm #formDados .formDadosAll
+{
+    float: left;
+    width: 130px;
+    padding-top: 3px;
+    padding-right: 3px;
+    text-align: right;
+}
+
+#newcadastro #imageCad form #cadForm #formDados .formDadosAll input
+{
+    float: right;
+    padding-top:3px;
+}
+
+/*----- fim pagina de cadastro -----*/
 
 #top
 {
