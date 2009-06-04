@@ -81,7 +81,8 @@
 				?>
 				<div id="navcontainer">
 					<ul class="navlist">
-						<li><a href="#">Seguindo</a>
+					<form method="post" action="index.php">
+						<li><input type="submit" value="Seguindo"></a>
 							<ul class="subnavlist">
 								<form method="get" action="index">
 								<?php
@@ -116,7 +117,7 @@
 							</ul>
 						</li>
 						
-						<li><a href="#">Seguido por</a>
+						<li><input type="submit" value="Seguido por"></a>
 							<ul class="subnavlist">
 								<form method="get" action="index">
 								<?php
@@ -151,7 +152,8 @@
 							</ul>
 						</li>
 						
-						<li><a href="#">Mensagens</a></li>
+						<li><input type="submit" name="show_only" value="Mensagens"></li>
+						</form>
 					</ul>
 				</div>
 
@@ -160,10 +162,13 @@
 			<div id="bordertop">&nbsp;</div>
 			
 			<?php 
-				if($controller->activeUser->alias == $controller->visualisedUser->alias)
+				if($controller->activeUser->alias != $controller->visualisedUser->alias)
+					$twittMsgs = $controller->twitt->showMessage();
+				else if(!$controller->showOnly)
 					$twittMsgs = $controller->twitt->showAllMessage();
 				else
-					$twittMsgs = $controller->twitt->showMessage(); ?>			
+					$twittMsgs = $controller->twitt->showMessage();			 ?>
+								
 			
 			<div id="content">
 					<?php

@@ -17,6 +17,7 @@ class Controller
 	var $activeSession = false;
 	var $twitt = null;
 	var $follow = null;
+	var $showOnly = false;
 	
 	
 	//função que invoca o controller
@@ -47,6 +48,8 @@ class Controller
 				$this->activeSession = true;
 			}
 		}
+		if(isset($_POST['show_only']))
+			$this->showOnly = true;
 
 		//A sessão é valida?
 		if ($this->activeSession)
