@@ -30,5 +30,14 @@ class Twitt extends AcessaBD
 		//verifica se a instanciação foi correta
 		return ($this->id > 0);
 	}
+
+  /**
+   * Método para retornar um Objeto instanciado do usuário
+   * @return User Objeto instanciado do usuário
+   */
+  function getUser()
+  {
+    return new User('id',"{$this->id_user}");
+  }
 }
 ?>
