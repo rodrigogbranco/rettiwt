@@ -61,5 +61,28 @@ class User extends AcessaBD
       return null;
     }
   }
+
+  function returnAvatarAddress()
+  {
+    $foto = new Multimidia('id',"{$this->foto_id_multimidia}");
+
+    if (!empty($foto))
+    {
+      $avatar = $foto->publicFileName();
+
+      if (!empty($avatar))
+      {
+        return $avatar;
+      }
+      else
+      {
+        return 'templates/theme/image/teste.png';
+      }
+    }
+    else
+    {
+      return null;
+    }
+  }
 }
 ?>
