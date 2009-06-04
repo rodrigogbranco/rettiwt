@@ -81,7 +81,7 @@
 				?>
 				<div id="navcontainer">
 					<ul class="navlist">
-					<form method="post" action="index.php">
+					<form name="form1" method="get" action="index.php">
 						<li><strong><input class="button" type="submit" value="Seguindo"></strong></a>
 							<ul class="subnavlist">
 								<form method="get" action="index">
