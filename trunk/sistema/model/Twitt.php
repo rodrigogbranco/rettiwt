@@ -1,6 +1,7 @@
 <?php
 /*Arquivo de acesso ao banco*/
 require_once "sistema/componentes/acessabd/acessabd.class.php";
+require_once "sistema/model/User.php";
 
 //Classe que instancia um Usuario
 class Twitt extends AcessaBD
