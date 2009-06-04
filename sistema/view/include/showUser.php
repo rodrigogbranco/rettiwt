@@ -94,11 +94,12 @@
 										<?php
 										foreach($seguindo as $seg)
 										{
+                      $foto = new Multimidia('id',$seg->foto_id_multimidia);
 											?>
 											<li>
 											<input type="image" name="alias" class="button" 
 											value="<?php echo $seg->alias; ?>" 
-											src="<?php echo $seg->getUser()->returnAvatarAddress(); ?>">
+                      src="<?php echo $foto->publicFileName(); ?>">
 											<?php echo $seg->alias; ?></li>
 											<?php
               						}
@@ -129,11 +130,12 @@
 										<?php
 										foreach($seguindo as $seg)
 										{
+                      $foto = new Multimidia('id',$seg->foto_id_multimidia);
 											?>
 											<li>
 											<input type="image" name="alias" class="button" 
 											value="<?php echo $seg->alias; ?>" 
-											src="<?php echo $seg->getUser()->returnAvatarAddress(); ?>">
+											src="<?php echo $foto->publicFileName(); ?>">
 											<?php echo $seg->alias; ?></li>
 											<?php
               						}
@@ -167,7 +169,8 @@
 				else if(!$controller->showOnly)
 					$twittMsgs = $controller->twitt->showAllMessage();
 				else
-					$twittMsgs = $controller->twitt->showMessage();			 ?>
+					$twittMsgs = $controller->twitt->showMessage();
+			 ?>
 								
 			
 			<div id="content">

@@ -38,7 +38,8 @@ class Twitt extends AcessaBD
    */
   function getUser()
   {
-    return new User('id',"{$this->id_user}");
+    $usuario = new User('id',"{$this->id_user}");
+    return $usuario;
   }
 }
 ?>
