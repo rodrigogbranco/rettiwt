@@ -1,6 +1,7 @@
 <?php
 
 //Reportar erros
+ini_set("display_errors",1);
 error_reporting(E_ALL);
 
 //Incluir o arquivo do Controller
@@ -14,5 +15,5 @@ session_start();
 $controller = new Controller();
 //Inicia o Controller
 $controller->run();
-
+echo "para";
 ?>

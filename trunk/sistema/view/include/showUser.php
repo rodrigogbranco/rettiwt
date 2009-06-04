@@ -142,7 +142,13 @@
 									<input class="button" type="submit" name="alias" 
 										value="
 										<?php echo $msgInstance->getUser()->alias; ?>">
-								</form>
+								<?php
+									if($msgInstance->reply != null)
+									{
+										printf("%s %s","para ",$controller->twitt->returnUser($msgInstance->reply)->alias);
+									}
+								?>	
+								</form>						
 							</div>
 							<div class="msg_content"><?php echo $msgInstance->text;?></div>
 							<div class="msg_user">
