@@ -30,21 +30,8 @@
 				}
 				?>
 				<div id="informacoes">
-
-					<p>
-					<?php
-					$avatar = $this->user->returnAvatar();
-					echo '<img width="60" height="60" src="';
-					if (!empty($avatar))
-					{
-						echo $avatar;
-					}
-					else
-					{
-						echo 'templates/theme/image/teste.png';
-					}
-					echo ' ">';
-					?>
+				<p>
+<?php echo $this->user->returnAvatar(); ?>
 					<strong><?php echo $this->user->alias; ?></strong></p>
 				
 					<?php if($controller->activeSession)
@@ -150,20 +137,7 @@
 							</div>
 							<div class="msg_content"><?php echo $msgInstance->text;?></div>
 							<div class="msg_user">
-              			<?php
-             			 $avatar = $msgInstance->getUser()->returnAvatar();
-              				echo '<img width="60" height="60" src="';
-             				 if (!empty($avatar))
-             				 {
-                				echo $avatar;
-              				 }
-             				 else
-              				 {
-               				 echo 'templates/theme/image/teste.png';
-              				 }
-              				echo ' "/>';
-             				 ?>
-							</div>
+              <?php echo $msgInstance->getUser()->returnAvatar(); ?>
 							<div class="msg_hour">
 								<em>Mensagem enviada em <?php echo $msgInstance->date; ?>
 									às <?php echo $msgInstance->time; ?></em>

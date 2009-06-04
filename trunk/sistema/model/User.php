@@ -41,7 +41,20 @@ class User extends AcessaBD
 
     if (!empty($foto))
     {
-      return $foto->publicFileName();
+      $avatar = $foto->publicFileName();
+      $string = '<img src="';
+
+      if (!empty($avatar))
+      {
+        $string .= $avatar;
+      }
+      else
+      {
+        $string .= 'templates/theme/image/teste.png';
+      }
+      $string .= ' ">';
+      
+      return $string;
     }
     else
     {

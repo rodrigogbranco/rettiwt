@@ -1,5 +1,4 @@
 <?php
-global $diretorioSistemaComponentes;
 require_once ("sistema/componentes/acessabd/acessabd.class.php");
 
 /**
