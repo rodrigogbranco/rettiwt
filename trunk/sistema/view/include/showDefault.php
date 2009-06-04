@@ -1,5 +1,5 @@
-		<div id="divBase">
-        
+  <div id="divBase">
+
             <div id="imageBack"><!--IMAGEM BACK VAI AQUI--></div>
 
             <div id="divcad">
@@ -16,7 +16,7 @@
                         e-mail: <input type="text" name="email">
                     </div>
                     <div id="passRegion">
-                        senha: <input type="password" name="pass">
+                        senha: <input type="password" name="password">
                     </div>
                     <div id="submitRegion">
                         <input type="submit" value="Entrar">
