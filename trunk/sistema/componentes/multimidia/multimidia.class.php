@@ -1,6 +1,6 @@
 <?php
 global $diretorioSistemaComponentes;
-require_once ($diretorioSistemaComponentes."acessabd/acessabd.class.php");
+require_once ("sistema/componentes/acessabd/acessabd.class.php");
 
 /**
  * Classe do modelo de controle de arquivos que serão enviados pelo usuario.
@@ -28,7 +28,7 @@ class Multimidia extends AcessaBD
 
     $this->nomeTabela = 'multimidia';
     $this->nomeCampos = array('id','nomeantigo','nomenovo','tamanho','id_usuario','tipo');
-    $this->uploadDir = $diretorioRaiz."multimidia/";
+    $this->uploadDir = "multimidia/";
 
     parent::__construct($nomeCampo, $valorCampo);
   }
