@@ -1,11 +1,11 @@
 <?php
 /*Arquivos fonte*/
-require_once("sistema/view/View.php");
-require_once("sistema/view/AnonimousView.php");
-require_once("sistema/view/UserView.php");
-require_once("sistema/view/RegisterView.php");
-require_once("sistema/model/User.php");
-require_once("sistema/model/Follow.php");
+//require_once("sistema/view/View.php");
+//require_once("sistema/view/AnonimousView.php");
+//require_once("sistema/view/UserView.php");
+//require_once("sistema/view/RegisterView.php");
+//require_once("sistema/model/User.php");
+//require_once("sistema/model/Follow.php");
 
 /*Classe do Controlador*/
 class FollowController
@@ -30,7 +30,6 @@ class FollowController
 		
 		$follow = $bd->fetch_object_list($select,'Twitt');
 		
-		var_dump($follow);
 		return $follow;
 	}
 
@@ -45,7 +44,6 @@ class FollowController
 		
 		$follow = $bd->fetch_object_list($select,'Twitt');
 		
-		var_dump($follow);
 		return $follow;
 	}
 	

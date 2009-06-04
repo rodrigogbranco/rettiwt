@@ -80,13 +80,35 @@
 					<ul class="navlist">
 						<li><a href="#">Seguindo</a>
 							<ul class="subnavlist">
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<form method="get" action="index">
+								<?php
+									$seguindo = $controller->follow->showFollowed();
+									if ($seguindo != null)
+									{
+										?>
+										<form method="get" action="index.php">
+										<?php
+										foreach($seguindo as $seg)
+										{
+											?>
+											<li>
+											<input type="submit" name="alias" class="button" 
+											value="<?php echo $seg->alias; ?>" 
+											src="<?php echo $seg->getUser()->returnAvatarAddress(); ?>"></li>
+											<?php
+              						}
+              						?>
+              						</form>
+              						<?php
+									}
+									else
+									{
+									?>
+									<li>Você não está seguindo ninguém</li>
+									<?php
+									}
+									?>
+								</form>
 							</ul>
 						</li>
 						
