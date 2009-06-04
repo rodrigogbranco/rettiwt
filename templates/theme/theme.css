@@ -142,9 +142,10 @@ body
     background-color: rgb(120,129,144);
     position: relative;
     max-width: 725px;
+    width: 650px;
     max-height: 525px;
     min-height: 525px;
-    margin: 2% 20%;
+    margin: 2%;
     font-family: sans-serif;
     border: 1px #000000 solid;
 }
@@ -187,7 +188,7 @@ body
 
 #newcadastro #imageCad form #cadForm #formConf
 {
-    float: right;
+    
     position: relative;
     top: 65px;
 }
@@ -212,6 +213,18 @@ body
 {
     float: right;
     padding-top:3px;
+}
+
+#newcadastro #fail
+{
+	background-color: #ff0000;
+    border: 1px solid;
+	color: black;
+	text-align: center;
+    margin-left: 125px;
+    width: 400px;
+    top: 5px;
+    position: relative;
 }
 
 /*----- fim pagina de cadastro -----*/
