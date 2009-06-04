@@ -1,6 +1,7 @@
 <?php
 /*Arquivo de acesso ao banco*/
 require_once "sistema/componentes/acessabd/acessabd.class.php";
+require_once "sistema/componentes/multimidia/multimidia.class.php";
 
 //Classe que instancia um Usuario
 class User extends AcessaBD
