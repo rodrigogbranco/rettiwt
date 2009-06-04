@@ -101,7 +101,10 @@ class Multimidia extends AcessaBD
    */
   public function publicFileName()
   {
-    return $this->uploadDir.$this->nomenovo;
+  	if (!empty($this->nomenovo))
+	    return $this->uploadDir.$this->nomenovo;
+	
+	return null;
   }
 }
 
