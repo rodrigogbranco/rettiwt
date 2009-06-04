@@ -40,7 +40,7 @@
 						if($controller->activeUser->alias != $controller->visualisedUser->alias)
 						{
 						?>
-							<a href="#">Seguir</a>
+							<!--<a href="#">Seguir</a>-->
 						<?php
 						}
 					}
@@ -105,7 +105,7 @@
 									else
 									{
 									?>
-									<li>Você não está seguindo ninguém</li>
+									<li><?php echo $user->alias; ?> não está seguindo ninguém</li>
 									<?php
 									}
 									?>
@@ -115,9 +115,35 @@
 						
 						<li><a href="#">Seguido por</a>
 							<ul class="subnavlist">
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
-								<li><a href="#"><img src="templates/theme/image/teste.png"></a></li>
+								<form method="get" action="index">
+								<?php
+									$seguindo = $controller->follow->showFollowMe();
+									if ($seguindo != null)
+									{
+										?>
+										<form method="get" action="index.php">
+										<?php
+										foreach($seguindo as $seg)
+										{
+											?>
+											<li>
+											<input type="image" name="alias" class="button" 
+											value="<?php echo $seg->alias; ?>" 
+											src="<?php echo $seg->getUser()->returnAvatarAddress(); ?>"></li>
+											<?php
+              						}
+              						?>
+              						</form>
+              						<?php
+									}
+									else
+									{
+									?>
+									<li><?php echo $user->alias; ?> não está seguindo ninguém</li>
+									<?php
+									}
+									?>
+								</form>
 							</ul>
 						</li>
 						
