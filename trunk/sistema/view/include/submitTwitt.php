@@ -13,7 +13,7 @@ count.value = max - field.value.length;
 }
 </script>
 
-<form name="Escrever Twitt" action="form2.php" method="post" enctype="multipart/form-data">
+<form name="Escrever Twitt" action="TrataEnvioController.php" method="post" enctype="multipart/form-data">
 <font size="1" face="arial, helvetica, sans-serif"> No máximo 160 caracteres!
 <center>
 <input name="text" type="text" size="100" maxlength="400" onKeyDown="CountLeft(this.form.text, this.form.left,160);" onKeyUp="CountLeft(this.form.text,this.form.left,160);"> 
@@ -22,6 +22,7 @@ count.value = max - field.value.length;
 Arquivo Multimídia <input name="upfile" type="file">
 <input readonly type="text" name="left" size=3 maxlength=3 value="160"> characters left</font>
 <br>
+<input type="hidden" value="tipo" value="imagem">
 <INPUT TYPE=SUBMIT VALUE="Submit">
 
 </form>
