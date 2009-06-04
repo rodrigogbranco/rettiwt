@@ -27,7 +27,7 @@ class AnonimousView extends View
 			{
 				//Usuário desconhecido
 				case "unknownUser":
-					$this->specifiedMsg = "Usuário Desconhecido";
+					$this->specifiedMsg = "Usuario Desconhecido";
 					break;
 			}
 			include "sistema/view/include/showDefault.php";
