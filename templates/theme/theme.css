@@ -223,8 +223,7 @@ body
 
 #container
 {
-	margin-left: 20%;
-	margin-right: 20%;
+	margin-left: 5%;
 }
 
 #welcome
@@ -278,6 +277,7 @@ body
 {
 	background-image: url('image/bordertop.png');
 	background-repeat: no-repeat;
+    width: 650px;
 	/* sera trocado por uma figura com borda arredondada */
 }
 
@@ -291,7 +291,7 @@ body
 
 .msg {
 	height: 100px;
-	/*width: 610px;*/
+	/*width: 500px;*/
 	padding: 10px 20px;
 }
 
@@ -314,6 +314,7 @@ body
 {
 	background-image: url('image/borderbottom.png');
 	background-repeat: no-repeat;
+    width: 650px;
 	/* sera trocado por uma figura com borda arredondada */
 }
 
