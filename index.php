@@ -15,5 +15,4 @@ session_start();
 $controller = new Controller();
 //Inicia o Controller
 $controller->run();
-echo "para";
 ?>

@@ -144,9 +144,7 @@
 										<?php echo $msgInstance->getUser()->alias; ?>">
 								<?php
 									if($msgInstance->reply != null)
-									{
-										printf("%s %s","para ",$controller->twitt->returnUser($msgInstance->reply)->alias);
-									}
+											echo "para ".$controller->twitt->returnUser($msgInstance->reply)->alias;
 								?>	
 								</form>						
 							</div>
@@ -183,14 +181,9 @@
 					}
 					?>
 			</div>
-			
-			<div id="borderbottom">&nbsp;</div>
-		
-		</div>
 		<?php
 		}
 		?>
-		
-		<div id="bottom">
-			<p>Bottom</p>
+			<div id="borderbottom">&nbsp;</div>
+			Rodapé
 		</div>
