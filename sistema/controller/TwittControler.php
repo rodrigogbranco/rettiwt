@@ -62,7 +62,16 @@ class TwittController
 		$bd->query($insert);
 	
 	}
-	
+	//retorna o usuário do twitt
+	function returnUser($reply)
+	{
+		Twitt $t = new Twitt('id',$reply);
+		
+		User $u = new User('id', $t->id_user);
+		
+		return $u;
+		
+	}
 	
 	
 }
