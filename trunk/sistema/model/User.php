@@ -33,5 +33,19 @@ class User extends AcessaBD
 	{
 		return $this->password;
 	}
+
+  function returnAvatar()
+  {
+    $foto = new Multimidia('id',"{$this->foto_id_multimidia}");
+
+    if (!empty($foto))
+    {
+      return $foto->publicFileName();
+    }
+    else
+    {
+      return null;
+    }
+  }
 }
 ?>

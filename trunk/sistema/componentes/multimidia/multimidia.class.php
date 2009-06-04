@@ -94,6 +94,15 @@ class Multimidia extends AcessaBD
       throw new Exception("Este objeto não é uma Imagem, é um Vídeo.");
     }
   }
+
+  /**
+   * Retorna o endereço absoluto do arquivo em questão.
+   * @return string Endereço absoluto do arquivo em questão.
+   */
+  public function publicFileName()
+  {
+    return $this->uploadDir.$this->nomenovo;
+  }
 }
 
 ?>
