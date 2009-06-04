@@ -10,14 +10,14 @@ class User extends AcessaBD
 	var $password; //password do usuario
 	var $email; //email do usuario
 	var $alias; //nickname do usuario
-	var $foto; //cores especificas do usuario
+	var $foto_id_multimidia; //????
 
 
 	/*Construtor*/
 	function __construct ( $nomeCampo = null, $valorCampo = null )
 	{
 		$this->nomeTabela = "user";
-		$this->nomeCampos = array("id","password","email","alias","foto");
+		$this->nomeCampos = array("id","password","email","alias","foto_id_multimidia");
 		
     		parent::__construct($nomeCampo, $valorCampo);
 	}

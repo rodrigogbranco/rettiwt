@@ -18,19 +18,27 @@ class UserView extends View
 		}
 		else
 		{
-			//Um erro foi detectado, vamos ver qual é...
+			//Uma msg foi detectada, vamos ver qual é...
 			switch($this->msg)
 			{
 				//Usuário inválido
 				case "invalidUser":
 					$this->specifiedMsg = "Usuário Inválido";
+					include "sistema/view/include/showDefault.php";
 					break;
 				case "invalidPassword":
 					$this->specifiedMsg = "Password Inválido";
+					include "sistema/view/include/showDefault.php";
 					break;
+				case "unknownUser":
+					$this->specifiedMsg = "Ops! O usuário não foi encontrado.";
+					include "sistema/view/include/showUser.php";
+					break;
+				case "newUser":
+					$this->specifiedMsg = "Parabéns, seu Rettiwt foi criado com sucesso!";
+					include "sistema/view/include/showUser.php";
+					break;						
 			}
-			include "sistema/view/include/showDefault.php";
-
 		}
 	}
 }

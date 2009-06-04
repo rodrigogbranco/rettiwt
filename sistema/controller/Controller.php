@@ -61,12 +61,18 @@ class Controller
 				//Avisa a sessao quem é pra mostrar
 				$view->setUser($user);
 				//Salvando o estado
-				$this->visualizedUser = $user; 
+				$this->visualisedUser = $user; 
 			}
 			else
 				$view->setMsg("error","unknownUser"); //É claro que não
 				
 		}
+		else
+		{
+			$view->setUser($this->activeUser);
+			$this->visualisedUser = $this->activeUser;
+		}
+		
 
 		//Mostra a visao
 		$view->show();
@@ -104,6 +110,7 @@ class Controller
 						/*Vamos persistir o indivíduo*/
 						$user->save();
 						
+						$view =  new UserView();
 						$view->setUser($user); //Logon permitido
 						$this->activeUser = $user; //Registrando o Usuário ativo
 						$this->visualisedUser = $user;
@@ -111,7 +118,7 @@ class Controller
 						//registrando a sessão
 						$_SESSION['user'] = $user->alias;
 						
-						$view=setMsg("information","newUser");
+						$view->setMsg("information","newUser");
 					}
 					else
 						$view->setMsg('error','registeredAlias'); //Ja tem um caboclo com esse alias.

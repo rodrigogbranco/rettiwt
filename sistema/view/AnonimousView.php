@@ -9,6 +9,7 @@ class AnonimousView extends View
 	/*Função de visualização*/
 	function show()
 	{
+		global $controller;
 		//Algum erro foi cometido?
 		if($this->msg == "")
 		{
