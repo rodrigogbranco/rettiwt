@@ -260,10 +260,26 @@ body
 	background-repeat: no-repeat;
 }
 
+#welcome #nouser
+{
+	float: right;
+	padding-top: 2px;
+	font-family: arial;
+	font-size: small;
+	text-align: center;
+	height: 60px;
+	width: 350px;
+}
+
+#welcome #nouser form
+{
+    margin-left: 25px;
+}
+
 #welcome #informacoes p
 {
 	float: left;
-	width: 400px;
+	width: 250px;
 	margin-bottom:0;
 	margin-top:0;
 }
