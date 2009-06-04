@@ -82,7 +82,7 @@
 				<div id="navcontainer">
 					<ul class="navlist">
 					<form method="post" action="index.php">
-						<li><input type="submit" value="Seguindo"></a>
+						<li><strong><input class="button" type="submit" value="Seguindo"></strong></a>
 							<ul class="subnavlist">
 								<form method="get" action="index">
 								<?php
@@ -117,7 +117,7 @@
 							</ul>
 						</li>
 						
-						<li><input type="submit" value="Seguido por"></a>
+						<li><strong><input class="button" type="submit" value="Seguido por"></strong></a>
 							<ul class="subnavlist">
 								<form method="get" action="index">
 								<?php
@@ -152,7 +152,7 @@
 							</ul>
 						</li>
 						
-						<li><input type="submit" name="show_only" value="Mensagens"></li>
+						<li><strong><input class="button" type="submit" name="show_only" value="Mensagens"></strong></li>
 						</form>
 					</ul>
 				</div>
